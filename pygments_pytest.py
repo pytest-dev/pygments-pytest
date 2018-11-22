@@ -37,8 +37,7 @@ class PytestLexer(pygments.lexer.RegexLexer):
             (r' +', pygments.token.Text),
         ],
         'failures': [
-            # note: ____ ERROR at setup of ... ____ is not red
-            (r'^_+ ((?!ERROR ).+) _+$', Color.BoldRed),
+            (r'^_+ .+ _+$', Color.BoldRed),
 
             (r'^E .*$', Color.BoldRed),
             (r'^[^:\n]+:\d+:.*$', filename_line),
