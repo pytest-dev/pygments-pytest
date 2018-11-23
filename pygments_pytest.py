@@ -12,9 +12,8 @@ class PytestLexer(pygments.lexer.RegexLexer):
     flags = re.MULTILINE
 
     def filename_line(self, match):
-        filename, colon, rest = match.group().partition(':')
-        yield match.start(), Color.BoldRed, filename
-        yield match.start() + len(filename), pygments.token.Text, colon + rest
+        yield match.start(1), Color.BoldRed, match.group(1)
+        yield match.start(2), pygments.token.Text, match.group(2)
 
     tokens = {
         'root': [
@@ -22,12 +21,13 @@ class PytestLexer(pygments.lexer.RegexLexer):
             (r'^collecting \.\.\.', Color.Bold),
             (r'[^ \n]+(?=.*\[ *\d+%\])', pygments.token.Text, 'progress_line'),
             (r'^=+ (ERRORS|FAILURES) =+$', pygments.token.Text, 'failures'),
-            (r'^=+ warnings summary =+$', Color.Yellow),
+            (r'^=+ warnings summary( \(final\))? =+$', Color.Yellow),
             (r'^=+ [1-9]\d* (failed|error).*=+$', Color.BoldRed),
             (r'^=+ .*[1-9]\d* warnings.*=+$', Color.BoldYellow),
             (r'^=+ [1-9]\d* passed.*=+$', Color.BoldGreen),
             (r'^=+ [1-9]\d* deselected.*=+$', Color.BoldYellow),
             (r'^=+ no tests ran.*=+$', Color.BoldYellow),
+            (r'.', pygments.token.Text),  # prevent error tokens
         ],
         'progress_line': [
             (r'PASSED|\.', Color.Green),
@@ -37,13 +37,14 @@ class PytestLexer(pygments.lexer.RegexLexer):
             (r' +', pygments.token.Text),
         ],
         'failures': [
-            (r'^_+ .+ _+$', Color.BoldRed),
+            (r'(?=^=+ )', pygments.token.Text, '#pop'),
 
+            (r'^_+ .+ _+$', Color.BoldRed),
             (r'^E .*$', Color.BoldRed),
-            (r'^[^:\n]+:\d+:.*$', filename_line),
+            (r'^(<[^>\n]+>|[^:\n]+)(:\d+:.*$)', filename_line),
             (r'^(    |>).+$', Color.Bold),
             # otherwise pygments will reset our state machine to `root`
             (r'\n', pygments.token.Text),
-            (r'(?=^=+ )', pygments.token.Text, '#pop'),
+            (r'.', pygments.token.Text),  # prevent error tokens
         ],
     }
