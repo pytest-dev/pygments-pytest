@@ -1,4 +1,7 @@
 coverage
-flake8
+# TODO: use a mainstream release when released
+git+https://github.com/pytest-dev/py#egg=py
+git+https://github.com/pytest-dev/pytest#egg=pytest
+importlib-metadata
 pre-commit
-pytest
+pygments-ansi-color
