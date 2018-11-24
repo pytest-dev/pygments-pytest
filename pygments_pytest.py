@@ -26,7 +26,7 @@ class PytestLexer(pygments.lexer.RegexLexer):
             (r'^=+ [1-9]\d* (failed|error).*=+$', Color.BoldRed),
             (r'^=+ .*[1-9]\d* warnings.*=+$', Color.BoldYellow),
             (r'^=+ [1-9]\d* passed.*=+$', Color.BoldGreen),
-            (r'^=+ [1-9]\d* deselected.*=+$', Color.BoldYellow),
+            (r'^=+ [1-9]\d* (deselected|skipped).*=+$', Color.BoldYellow),
             (r'^=+ no tests ran.*=+$', Color.BoldYellow),
             (r'.', pygments.token.Text),  # prevent error tokens
         ],
