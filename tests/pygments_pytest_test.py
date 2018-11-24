@@ -1,8 +1,6 @@
 import os.path
 import re
 import shlex
-import subprocess
-import sys
 
 import importlib_metadata
 import pygments.formatters
@@ -10,6 +8,10 @@ import pygments.lexers
 import pytest
 
 import pygments_pytest
+
+ANSI_LEXER = pygments.lexers.get_lexer_by_name('ansi', stripnl=False)
+PYTEST_LEXER = pygments.lexers.get_lexer_by_name('pytest', stripnl=False)
+HTML_FORMATTER = pygments.formatters.HtmlFormatter()
 
 ANSI_ESCAPE = re.compile(r'\033\[[^m]*m')
 NORM_WS_START_RE = re.compile(r'(<[^/][^>]+>)(\s*)')
@@ -37,10 +39,8 @@ def uncolor(s):
     return ANSI_ESCAPE.sub('', s)
 
 
-def highlight(lang, s):
-    lexer = pygments.lexers.get_lexer_by_name(lang, stripnl=False)
-    formatter = pygments.formatters.HtmlFormatter()
-    ret = pygments.highlight(s, lexer=lexer, formatter=formatter)
+def highlight(lexer, s):
+    ret = pygments.highlight(s, lexer=lexer, formatter=HTML_FORMATTER)
     ret = NORM_WS_START_RE.sub(r'\2\1', ret)
     ret = NORM_WS_END_RE.sub(r'\2\1', ret)
     ret = EMPTY_TAG_RE.sub('', ret)
@@ -48,18 +48,15 @@ def highlight(lang, s):
 
 
 @pytest.fixture(params=['', '-v'])
-def compare(tmpdir, request):
+def compare(testdir, request):
     def compare_fn(src, args=()):
-        tmpdir.join('f.py').write(src)
+        testdir.tmpdir.join('f.py').write(src)
 
-        args += tuple(shlex.split(request.param))
-        cmd = (sys.executable, '-mpytest', '--color=yes', 'f.py') + args
-        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, cwd=str(tmpdir))
-        out, _ = proc.communicate()
-        out = out.decode('UTF-8')
+        args += ('f.py', '--color=yes') + tuple(shlex.split(request.param))
+        ret = testdir.runpytest(*args)
 
-        ansi = highlight('ansi', out)
-        pytest = highlight('pytest', uncolor(out))
+        ansi = highlight(ANSI_LEXER, ret.stdout.str())
+        pytest = highlight(PYTEST_LEXER, uncolor(ret.stdout.str()))
 
         fname = '{}_ansi.html'.format(request.node.name)
         with open(os.path.join(DEMO_DIR, fname), 'w') as f:
