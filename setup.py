@@ -4,7 +4,7 @@ setup(
     name='pygments_pytest',
     description='A pygments lexer for pytest output.',
     url='https://github.com/asottile/pygments-pytest',
-    version='0.0.1',
+    version='1.0.0',
     author='Anthony Sottile',
     author_email='asottile@umich.edu',
     classifiers=[
