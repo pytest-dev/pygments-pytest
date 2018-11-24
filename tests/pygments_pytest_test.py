@@ -147,6 +147,14 @@ def test_blank_code_line(compare):
     )
 
 
+def test_only_skips(compare):
+    compare(
+        'import pytest\n'
+        '@pytest.mark.skip\n'
+        'def test(): pass\n',
+    )
+
+
 @pytest.mark.xfail
 def test_collection_failure_syntax_error(compare):
     compare('(')
