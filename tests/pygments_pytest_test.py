@@ -67,11 +67,10 @@ body {
 '''
 
 
-@pytest.mark.parametrize(('pkg', 'v'), (('pytest', '4.0.1'), ('py', '1.7.1')))
-def test_versions(pkg, v):
+def test_versions():
     # When this fails, remove installation from `git` in requirements-dev.txt
-    version = importlib_metadata.version(pkg)
-    assert '+g' in version and version[:5] == v
+    version = importlib_metadata.version('py')
+    assert '+g' in version and version[:5] == '1.7.1'
 
 
 def uncolor(s):
