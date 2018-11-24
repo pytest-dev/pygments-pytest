@@ -1,3 +1,4 @@
+import os.path
 import re
 
 import pygments.lexer
@@ -48,3 +49,36 @@ class PytestLexer(pygments.lexer.RegexLexer):
             (r'.', pygments.token.Text),  # prevent error tokens
         ],
     }
+
+
+COLORS = {
+    'Cyan': '#06989a', 'Green': '#4e9a06', 'Red': '#c00', 'Yellow': '#c4A000',
+}
+
+
+def stylesheet(colors=None):
+    colors = colors or {}
+    assert set(colors) <= set(COLORS), set(colors) - set(COLORS)
+    return '.-Color-Bold { font-weight: bold; }' + ''.join(
+        '.-Color-Bold{k}{{ color: {v}; font-weight: bold; }}\n'
+        '.-Color-{k}{{ color: {v}; }}\n'.format(k=k, v=colors.get(k, v))
+        for k, v in sorted(COLORS.items())
+    )
+
+
+def setup(app):  # pragma: no cover (sphinx)
+    def add_stylesheet(app):
+        app.add_stylesheet('pygments_pytest.css')
+
+    def copy_stylesheet(app, exception):
+        if app.builder.name != 'html' or exception:
+            return
+
+        path = os.path.join(app.builder.outdir, '_static/pygments_pytest.css')
+        with open(path, 'w') as f:
+            f.write(stylesheet(app.config.pygments_pytest_ansi_colors))
+
+    app.require_sphinx('1.0')
+    app.add_config_value('pygments_pytest_ansi_colors', {}, 'html')
+    app.connect('builder-inited', add_stylesheet)
+    app.connect('build-finished', copy_stylesheet)
