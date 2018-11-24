@@ -1,0 +1,21 @@
+language: python
+matrix:
+    include:
+        -   env: TOXENV=py27
+        -   env: TOXENV=py35
+            python: 3.5
+        -   env: TOXENV=py36
+            python: 3.6
+        -   env: TOXENV=pypy
+            python: pypy-5.7.1
+        -   env:
+            -   TOXENV=push
+            -   secure: "Pc/ej/mJ6xdfPPalNPT1cEW7qiWCVa/DSo2vhPkVfVnytdYlZ1OamWwLf8sKvZ6+Bus1uvI5UFMovDkBjAqMr54xqvYhUCsiLGRApWMOJ4HLOSVulYXeLYsoamCfb9SH/3kjTupMCJzI5Ud9T57/St4GFqnEx08gWK7Jim7oX5rGotPOlpk6DD4Tz0/PGV/4eXY1Dr8uZrS4Hf47XKfiTIG0MxMh8GxuSiU2rZyKE/7brlcTV9s1llEtXOVbAz3cqtBsND2XCUpxZVBME2FJHp1g2b846IodSttQi6k8CCV94LIAtAMkNvyuAaB9tXrg/MgJbRxmYokgia43HYzgSMCPOcuDxeEZ/efhtPeJuO4iH2A49FEPvBoWhPgbbB+6wtdsDZAlokGHoOvYCWk3U0BZie4gq4Tm3u0wFOjo8L003NvtkCFlRQij9O/Ve/4c+KUUqsHs2cml2d7riOA/ZKVbwcAc+nX4n8i/UbZD2tFsbRaN6imFy7RREOvI2Idw2NQaXjiGEMMkObQXrrrDUkarICVi+4ugmQ57WxVl/fR457Xg1zJIz2VcTD5kgSGAPfPlrYx2xnR5yILYiaWiLqQ1rhFKQZ0rwOZ8Oiqk8nPXkSyXABr9B8PhCFJGGKJIqDI39Qe6XCXAN3GMH2zVuUDfgZCtdQ8KtM1Qg71IR4g="
+            python: 3.6
+install: pip install coveralls tox
+script: tox
+after_success: coveralls
+cache:
+    directories:
+        - $HOME/.cache/pip
+        - $HOME/.cache/pre-commit
