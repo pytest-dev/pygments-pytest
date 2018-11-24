@@ -155,6 +155,23 @@ def test_only_skips(compare):
     )
 
 
+def test_only_xpass(compare):
+    compare(
+        'import pytest\n'
+        '@pytest.mark.xfail\n'
+        'def test(): pass\n'
+    )
+
+
+def test_only_xfail(compare):
+    compare(
+        'import pytest\n'
+        '@pytest.mark.xfail\n'
+        'def test():\n'
+        '    assert False\n'
+    )
+
+
 @pytest.mark.xfail
 def test_collection_failure_syntax_error(compare):
     compare('(')
