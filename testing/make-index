@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+import os
+
+
+HTML = '''\
+<!doctype html>
+<html>
+<head><title>pygments python</title></head>
+<body>{}</body>
+</html>
+'''
+
+
+def main():
+    links = [
+        '<li><a href="demo/{filename}">{filename}</a></li>'.format(filename=f)
+        for f in sorted(os.listdir('demo')) if f.endswith('_pytest.html')
+    ]
+    with open('index.html', 'w') as f:
+        f.write(HTML.format('<ul>{}</ul>'.format(''.join(links))))
+
+
+if __name__ == '__main__':
+    exit(main())
