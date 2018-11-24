@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<style>
+body {
+    background-color: #2d0922;
+    color: #fff;
+}
+.-Color-Bold {
+    font-weight: bold;
+}
+
+.-Color-Red {
+    color: #c00;
+}
+.-Color-BoldRed {
+    color: #c00;
+    font-weight: bold;
+}
+
+.-Color-Cyan {
+    color: #06989A;
+}
+.-Color-BoldCyan {
+    color: #06989A;
+    font-weight: bold;
+}
+
+.-Color-Green {
+    color: #4E9A06;
+}
+.-Color-BoldGreen {
+    color: #4E9A06;
+    font-weight: bold;
+}
+
+.-Color-Yellow {
+    color: #C4A000;
+}
+.-Color-BoldYellow {
+    color: #C4A000;
+    font-weight: bold;
+}
+</style>
+</head>
+<body><div class="highlight"><pre><span class=" -Color -Color-Bold">============================= test session starts ==============================</span>
+platform linux -- Python 3.6.3, pytest-4.0.1, py-1.7.1.dev3+gb9da2ed6, pluggy-0.8.0
+cachedir: /home/travis/build/asottile/pygments-pytest/.tox/push/.pytest_cache
+rootdir: /tmp/pytest-of-travis/pytest-0/test_collection_failure_syntax0, inifile:
+collected 0 items / 1 errors
+
+==================================== ERRORS ====================================
+<span class=" -Color -Color-BoldRed">____________________________ ERROR collecting f.py _____________________________</span>
+<span class=" -Color -Color-BoldRed">/home/travis/build/asottile/pygments-pytest/.tox/push/lib/python3.6/site-packages/_pytest/python.py</span>:450: in _importtestmodule
+    <span class=" -Color -Color-Bold">mod = self.fspath.pyimport(ensuresyspath=importmode)</span>
+<span class=" -Color -Color-BoldRed">/home/travis/build/asottile/pygments-pytest/.tox/push/lib/python3.6/site-packages/py/_path/local.py</span>:668: in pyimport
+    <span class=" -Color -Color-Bold">__import__(modname)</span>
+<span class=" -Color -Color-BoldRed">E     File &quot;/tmp/pytest-of-travis/pytest-0/test_collection_failure_syntax0/f.py&quot;, line 1</span>
+<span class=" -Color -Color-BoldRed">E       (</span>
+<span class=" -Color -Color-BoldRed">E       ^</span>
+<span class=" -Color -Color-BoldRed">E   SyntaxError: unexpected EOF while parsing</span>
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+<span class=" -Color -Color-BoldRed">=========================== 1 error in 0.14 seconds ============================</span></pre>
+</div>
+</body>
+</html>

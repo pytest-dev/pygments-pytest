@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<style>
+body {
+    background-color: #2d0922;
+    color: #fff;
+}
+.-Color-Bold {
+    font-weight: bold;
+}
+
+.-Color-Red {
+    color: #c00;
+}
+.-Color-BoldRed {
+    color: #c00;
+    font-weight: bold;
+}
+
+.-Color-Cyan {
+    color: #06989A;
+}
+.-Color-BoldCyan {
+    color: #06989A;
+    font-weight: bold;
+}
+
+.-Color-Green {
+    color: #4E9A06;
+}
+.-Color-BoldGreen {
+    color: #4E9A06;
+    font-weight: bold;
+}
+
+.-Color-Yellow {
+    color: #C4A000;
+}
+.-Color-BoldYellow {
+    color: #C4A000;
+    font-weight: bold;
+}
+</style>
+</head>
+<body><div class="highlight"><pre><span class=" -Color -Color-Bold">============================= test session starts ==============================</span>
+platform linux -- Python 3.6.3, pytest-4.0.1, py-1.7.1.dev3+gb9da2ed6, pluggy-0.8.0 -- /home/travis/build/asottile/pygments-pytest/.tox/push/bin/python
+cachedir: /home/travis/build/asottile/pygments-pytest/.tox/push/.pytest_cache
+rootdir: /tmp/pytest-of-travis/pytest-0/test_too_long_summary_line__v_0, inifile:
+<span class=" -Color -Color-Bold">collecting ...</span> collected 7 items / 1 deselected
+
+f.py::test_answer <span class=" -Color -Color-Red">FAILED</span>                                                 <span class=" -Color -Color-Cyan">[ 16%]</span>
+f.py::test <span class=" -Color -Color-Green">PASSED</span>                                                        <span class=" -Color -Color-Cyan">[ 33%]</span>
+f.py::test_skip <span class=" -Color -Color-Yellow">SKIPPED</span>                                                  <span class=" -Color -Color-Cyan">[ 50%]</span>
+f.py::test_xfail <span class=" -Color -Color-Yellow">xfail</span>                                                   <span class=" -Color -Color-Cyan">[ 66%]</span>
+f.py::test_Xxfail <span class=" -Color -Color-Yellow">XPASS</span>                                                  <span class=" -Color -Color-Cyan">[ 83%]</span>
+f.py::test_error <span class=" -Color -Color-Red">ERROR</span>                                                   <span class=" -Color -Color-Cyan">[100%]</span>
+
+==================================== ERRORS ====================================
+<span class=" -Color -Color-BoldRed">_________________________ ERROR at setup of test_error _________________________</span>
+
+    <span class=" -Color -Color-Bold">@pytest.fixture</span>
+    <span class=" -Color -Color-Bold">def s():</span>
+<span class=" -Color -Color-Bold">&gt;       raise Exception(&#39;boom!&#39;)</span>
+<span class=" -Color -Color-BoldRed">E       Exception: boom!</span>
+
+<span class=" -Color -Color-BoldRed">f.py</span>:29: Exception
+=================================== FAILURES ===================================
+<span class=" -Color -Color-BoldRed">_________________________________ test_answer __________________________________</span>
+
+    <span class=" -Color -Color-Bold">def test_answer():</span>
+<span class=" -Color -Color-Bold">&gt;       assert inc(3) == 5</span>
+<span class=" -Color -Color-BoldRed">E       assert 4 == 5</span>
+<span class=" -Color -Color-BoldRed">E        +  where 4 = inc(3)</span>
+
+<span class=" -Color -Color-BoldRed">f.py</span>:7: AssertionError
+<span class=" -Color -Color-BoldRed">= 1 failed, 1 passed, 1 skipped, 1 deselected, 1 xfailed, 1 xpassed, 1 error in 0.06 seconds =</span></pre>
+</div>
+</body>
+</html>
