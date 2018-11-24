@@ -21,39 +21,43 @@ HTML = '''\
 <html>
 <head>
 <style>
+body {
+    background-color: #2d0922;
+    color: #fff;
+}
 .-Color-Bold {
     font-weight: bold;
 }
 
 .-Color-Red {
-    color: rgb(222,56,43);
+    color: #c00;
 }
 .-Color-BoldRed {
-    color: rgb(222,56,43);
+    color: #c00;
     font-weight: bold;
 }
 
 .-Color-Cyan {
-    color: rgb(44,181,233);
+    color: #06989A;
 }
 .-Color-BoldCyan {
-    color: rgb(44,181,233);
+    color: #06989A;
     font-weight: bold;
 }
 
 .-Color-Green {
-    color: rgb(57,181,74);
+    color: #4E9A06;
 }
 .-Color-BoldGreen {
-    color: rgb(57,181,74);
+    color: #4E9A06;
     font-weight: bold;
 }
 
 .-Color-Yellow {
-    color: rgb(255,199,6);
+    color: #C4A000;
 }
 .-Color-BoldYellow {
-    color: rgb(255,199,6);
+    color: #C4A000;
     font-weight: bold;
 }
 </style>
@@ -98,11 +102,11 @@ def compare(tmpdir, request):
         ansi = highlight('ansi', out)
         pytest = highlight('pytest', uncolor(out))
 
-        fname = '{}_ansi.htm'.format(request.node.name)
+        fname = '{}_ansi.html'.format(request.node.name)
         with open(os.path.join(DEMO_DIR, fname), 'w') as f:
             f.write(ansi)
 
-        fname = '{}_pytest.htm'.format(request.node.name)
+        fname = '{}_pytest.html'.format(request.node.name)
         with open(os.path.join(DEMO_DIR, fname), 'w') as f:
             f.write(pytest)
 

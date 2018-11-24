@@ -3,5 +3,6 @@ coverage
 git+https://github.com/pytest-dev/py#egg=py
 git+https://github.com/pytest-dev/pytest#egg=pytest
 importlib-metadata
+markdown-to-presentation
 pre-commit
 pygments-ansi-color

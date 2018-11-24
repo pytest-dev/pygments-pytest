@@ -12,4 +12,4 @@ A pygments lexer for pytest output
 
 ## Usage
 
-TODO!
+See [some demos](https://asottile.github.io/pygments-pytest)!
