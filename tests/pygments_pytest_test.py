@@ -9,6 +9,8 @@ import pygments.formatters
 import pygments.lexers
 import pytest
 
+import pygments_pytest
+
 ANSI_ESCAPE = re.compile(r'\033\[[^m]*m')
 NORM_WS_START_RE = re.compile(r'(<[^/][^>]+>)(\s*)')
 NORM_WS_END_RE = re.compile(r'(\s*)(</[^>]+>)')
@@ -18,53 +20,11 @@ DEMO_DIR = os.path.join(os.path.dirname(__file__), '../demo')
 
 HTML = '''\
 <!doctype html>
-<html>
-<head>
-<style>
-body {
-    background-color: #2d0922;
-    color: #fff;
-}
-.-Color-Bold {
-    font-weight: bold;
-}
-
-.-Color-Red {
-    color: #c00;
-}
-.-Color-BoldRed {
-    color: #c00;
-    font-weight: bold;
-}
-
-.-Color-Cyan {
-    color: #06989A;
-}
-.-Color-BoldCyan {
-    color: #06989A;
-    font-weight: bold;
-}
-
-.-Color-Green {
-    color: #4E9A06;
-}
-.-Color-BoldGreen {
-    color: #4E9A06;
-    font-weight: bold;
-}
-
-.-Color-Yellow {
-    color: #C4A000;
-}
-.-Color-BoldYellow {
-    color: #C4A000;
-    font-weight: bold;
-}
-</style>
-</head>
-<body>HTML</body>
-</html>
+<html><head>
+<style>body { background-color: #2d0922; color: #fff; } STYLES</style>
+</head><body>HTML</body></html>
 '''
+HTML = HTML.replace('STYLES', pygments_pytest.stylesheet())
 
 
 def test_versions():

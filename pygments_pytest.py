@@ -48,3 +48,18 @@ class PytestLexer(pygments.lexer.RegexLexer):
             (r'.', pygments.token.Text),  # prevent error tokens
         ],
     }
+
+
+COLORS = {
+    'Cyan': '#06989a', 'Green': '#4e9a06', 'Red': '#c00', 'Yellow': '#c4A000',
+}
+
+
+def stylesheet(colors=None):
+    colors = colors or {}
+    assert set(colors) <= set(COLORS), set(colors) - set(COLORS)
+    return '.-Color-Bold { font-weight: bold; }' + ''.join(
+        '.-Color-Bold{k}{{ color: {v}; font-weight: bold; }}\n'
+        '.-Color-{k}{{ color: {v}; }}\n'.format(k=k, v=colors.get(k, v))
+        for k, v in sorted(COLORS.items())
+    )
