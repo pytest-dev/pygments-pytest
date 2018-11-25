@@ -68,11 +68,8 @@ def stylesheet(colors=None):
 
 
 def setup(app):  # pragma: no cover (sphinx)
-    def add_stylesheet(app):
-        app.add_stylesheet('pygments_pytest.css')
-
     def copy_stylesheet(app, exception):
-        if app.builder.name != 'html' or exception:
+        if exception:
             return
 
         path = os.path.join(app.builder.outdir, '_static/pygments_pytest.css')
@@ -81,5 +78,5 @@ def setup(app):  # pragma: no cover (sphinx)
 
     app.require_sphinx('1.0')
     app.add_config_value('pygments_pytest_ansi_colors', {}, 'html')
-    app.connect('builder-inited', add_stylesheet)
+    app.add_stylesheet('pygments_pytest.css')
     app.connect('build-finished', copy_stylesheet)
