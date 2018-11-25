@@ -6,7 +6,8 @@ pygments-pytest
 
 A pygments lexer for pytest output
 
-See [some demos](https://asottile.github.io/pygments-pytest)!
+See [some demos](https://asottile.github.io/pygments-pytest)!  Or
+[see it in action on pytest.org](https://pytest.org).
 
 ## Installation
 
