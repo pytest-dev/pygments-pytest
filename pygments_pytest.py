@@ -73,6 +73,7 @@ def setup(app):  # pragma: no cover (sphinx)
             return
 
         path = os.path.join(app.builder.outdir, '_static/pygments_pytest.css')
+        os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, 'w') as f:
             f.write(stylesheet(app.config.pygments_pytest_ansi_colors))
 
