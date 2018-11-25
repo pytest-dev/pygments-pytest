@@ -18,7 +18,7 @@ See [some demos](https://asottile.github.io/pygments-pytest)!  Or
 This library provides a pygments lexer called `pytest`.
 
 ```rst
-.. code-block: pytest
+.. code-block:: pytest
 
     $ pytest test.py
     ========================== test session starts ===========================
