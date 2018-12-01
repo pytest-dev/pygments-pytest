@@ -47,7 +47,7 @@ def highlight(lexer, s):
     return HTML.replace('HTML', ret)
 
 
-@pytest.fixture(params=['', '-v'])
+@pytest.fixture(params=['', '-v', '-q'])
 def compare(testdir, request):
     def compare_fn(src, args=()):
         testdir.tmpdir.join('f.py').write(src)

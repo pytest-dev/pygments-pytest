@@ -5,6 +5,7 @@ import pygments.lexer
 import pygments.token
 
 Color = pygments.token.Token.Color
+STATUSES = ('failed', 'passed', 'skipped', 'deselected', 'no tests ran')
 
 
 class PytestLexer(pygments.lexer.RegexLexer):
@@ -20,18 +21,22 @@ class PytestLexer(pygments.lexer.RegexLexer):
         'root': [
             (r'^=+ test session starts =+$', Color.Bold),
             (r'^collecting \.\.\.', Color.Bold),
-            (r'[^ \n]+(?=.*\[ *\d+%\])', pygments.token.Text, 'progress_line'),
+            (r'^(?=.+\[ *\d+%\]$)', pygments.token.Text, 'progress_line'),
             (r'^=+ (ERRORS|FAILURES) =+$', pygments.token.Text, 'failures'),
             (r'^=+ warnings summary( \(final\))? =+$', Color.Yellow),
-            (r'^=+ [1-9]\d* (failed|error).*=+$', Color.BoldRed),
-            (r'^=+ .*[1-9]\d* warnings.*=+$', Color.BoldYellow),
-            (r'^=+ [1-9]\d* passed.*=+$', Color.BoldGreen),
-            (r'^=+ [1-9]\d* (deselected|skipped).*=+$', Color.BoldYellow),
-            (r'^=+ [1-9]\d* (xfailed|xpassed).*=+$', Color.BoldYellow),
-            (r'^=+ no tests ran.*=+$', Color.BoldYellow),
+            (r'^(=+ )?[1-9]\d* (failed|error).*(=+)?$', Color.BoldRed),
+            (r'^(=+ )?[1-9].*[1-9]\d* warnings.*(=+)?$', Color.BoldYellow),
+            (r'^(=+ )?[1-9]\d* passed.*(=+)?$', Color.BoldGreen),
+            (
+                r'^(=+ )?[1-9]\d* (deselected|skipped).*(=+)?$',
+                Color.BoldYellow,
+            ),
+            (r'^(=+ )?[1-9]\d* (xfailed|xpassed).*(=+)?$', Color.BoldYellow),
+            (r'^(=+ )?no tests ran.*(=+)?$', Color.BoldYellow),
             (r'.', pygments.token.Text),  # prevent error tokens
         ],
         'progress_line': [
+            (r'^[^ ]+ (?=[^ \n]+ +\[)', pygments.token.Text),
             (r'PASSED|\.', Color.Green),
             (r'SKIPPED|XPASS|xfail|s|X|x', Color.Yellow),
             (r'ERROR|FAILED|E|F', Color.Red),
@@ -40,6 +45,11 @@ class PytestLexer(pygments.lexer.RegexLexer):
         ],
         'failures': [
             (r'(?=^=+ )', pygments.token.Text, '#pop'),
+            (
+                r'(?=^[1-9]\d* ({}))'.format('|'.join(STATUSES)),
+                pygments.token.Text,
+                '#pop',
+            ),
 
             (r'^_+ .+ _+$', Color.BoldRed),
             (r'^E .*$', Color.BoldRed),
