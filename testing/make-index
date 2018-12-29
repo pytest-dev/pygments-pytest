@@ -5,7 +5,7 @@ import os
 HTML = '''\
 <!doctype html>
 <html>
-<head><title>pygments python</title></head>
+<head><title>pygments pytest</title></head>
 <body>{}</body>
 </html>
 '''
