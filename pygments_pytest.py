@@ -38,7 +38,7 @@ class PytestLexer(pygments.lexer.RegexLexer):
         'progress_line': [
             (r'^[^ ]+ (?=[^ \n]+ +\[)', pygments.token.Text),
             (r'PASSED|\.', Color.Green),
-            (r'SKIPPED|XPASS|xfail|s|X|x', Color.Yellow),
+            (r'SKIPPED|XPASS|XFAIL|xfail|s|X|x', Color.Yellow),
             (r'ERROR|FAILED|E|F', Color.Red),
             (r'\[ *\d+%\]', Color.Cyan),
             (r' +', pygments.token.Text),

@@ -8,6 +8,10 @@ matrix:
             python: 3.6
         -   env: TOXENV=pypy
             python: pypy-5.7.1
+        -   env: TOXENV=py36-pytest-master
+            python: 3.6
+        -   env: TOXENV=py36-pytest-features
+            python: 3.6
         -   env:
             -   TOXENV=push
             -   secure: "AEAcy7+XgLUgpW7T8Qccmf39su1PVVoZEov+v9e1cPXdUEvZK2C96AdrHFIsc4J5x8kfU7doUM6sxxaLxVPNR0nyxbTckRq3r70YNlCn43VzyCHzAHQ4pZI/Pr+ys6jlAjXQjCfWrm1ttS0X7zyuBSJwRn7mnKkzKt19QHa8AoXD2hx78AjvVkHlLKm/TKBPCcPbAyTZjfaMsaSBmgyjv8l6q+Hw2E6j20M2FsjGIVtucV1zGUwYjZQSCQjzdzZUCjPYfFuUfV+0/UFCUe1dGvsA/hc3G9ZBN4CYfPNQzwB0wqaTyaR9aQVyDj2QRpYu2Nl0O4SPjmh5xOBJGQc6OjjqrlRrL7BVF+ZvfdwUe1Tf8fj3iC2tNIb1qywZuFVF5xmVsVo23Cm2gvnZdaCk48PAGXi555icBDjpzfypO/0PUANyx26rmbJ/Dadc/802aoCAx8L/BapO7efidT+TYtpW9WEa5VqnNiLMth7oJAacTGNvdoOxXLZV91gS2mofcPNC2x5BWu5/SM3mxoo8MVzF0PEXarLRaE6M8aHRAEawJfMwtyOCypDD018AjTYw+ca7eSV/f7yU8SQuRQxfEanVN1LN9DeBJ0L28DQxC7+lwosdbxQd3SxgPjWbGS2LobCTZ9+gJAWr8ohTK8uXZl3amY6Ve04sGuC0R3vWnQk="
