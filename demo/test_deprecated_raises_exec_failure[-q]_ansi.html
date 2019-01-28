@@ -24,6 +24,14 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 <span class=" -Color -Color-BoldRed">E   TypeError: int() argument must be a string, a bytes-like object or a number, not &#39;NoneType&#39;</span>
 
 <span class=" -Color -Color-BoldRed">&lt;2-codegen /tmp/pytest-of-travis/pytest-0/test_deprecated_raises_exec_failure2/f.py:3&gt;</span>:1: TypeError
-<span class=" -Color -Color-BoldRed">1 failed in 0.02 seconds</span></pre>
+<span class=" -Color -Color-Yellow">=============================== warnings summary ===============================</span>
+f.py::test
+  /tmp/pytest-of-travis/pytest-0/test_deprecated_raises_exec_failure2/f.py:3: PytestDeprecationWarning: raises(..., &#39;code(as_a_string)&#39;) is deprecated, use the context manager form or use `exec()` directly
+  
+  See https://docs.pytest.org/en/latest/deprecations.html#raises-warns-exec
+    pytest.raises(ValueError, &quot;int(None)&quot;)
+
+-- Docs: https://docs.pytest.org/en/latest/warnings.html
+<span class=" -Color -Color-BoldRed">1 failed, 1 warnings in 0.02 seconds</span></pre>
 </div>
 </body></html>
