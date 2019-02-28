@@ -1,7 +1,4 @@
 coverage
-# TODO: use a mainstream release when released
-git+https://github.com/pytest-dev/py#egg=py
-importlib-metadata
 markdown-to-presentation>=0.0.22
 pre-commit
 pygments-ansi-color

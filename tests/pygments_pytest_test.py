@@ -2,7 +2,6 @@ import os.path
 import re
 import shlex
 
-import importlib_metadata
 import pygments.formatters
 import pygments.lexers
 import pytest
@@ -27,12 +26,6 @@ HTML = '''\
 </head><body>HTML</body></html>
 '''
 HTML = HTML.replace('STYLES', pygments_pytest.stylesheet())
-
-
-def test_versions():
-    # When this fails, remove installation from `git` in requirements-dev.txt
-    version = importlib_metadata.version('py')
-    assert '+g' in version and version[:5] == '1.7.1'
 
 
 def uncolor(s):
