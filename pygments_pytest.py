@@ -14,7 +14,7 @@ class PytestLexer(pygments.lexer.RegexLexer):
     flags = re.MULTILINE
 
     def filename_line(self, match):
-        yield match.start(1), Color.BoldRed, match.group(1)
+        yield match.start(1), Color.Bold.Red, match.group(1)
         yield match.start(2), pygments.token.Text, match.group(2)
 
     tokens = {
@@ -24,15 +24,15 @@ class PytestLexer(pygments.lexer.RegexLexer):
             (r'^(?=.+\[ *\d+%\]$)', pygments.token.Text, 'progress_line'),
             (r'^=+ (ERRORS|FAILURES) =+$', pygments.token.Text, 'failures'),
             (r'^=+ warnings summary( \(final\))? =+$', Color.Yellow),
-            (r'^(=+ )?[1-9]\d* (failed|error).*(=+)?$', Color.BoldRed),
-            (r'^(=+ )?[1-9].*[1-9]\d* warnings.*(=+)?$', Color.BoldYellow),
-            (r'^(=+ )?[1-9]\d* passed.*(=+)?$', Color.BoldGreen),
+            (r'^(=+ )?[1-9]\d* (failed|error).*(=+)?$', Color.Bold.Red),
+            (r'^(=+ )?[1-9].*[1-9]\d* warnings.*(=+)?$', Color.Bold.Yellow),
+            (r'^(=+ )?[1-9]\d* passed.*(=+)?$', Color.Bold.Green),
             (
                 r'^(=+ )?[1-9]\d* (deselected|skipped).*(=+)?$',
-                Color.BoldYellow,
+                Color.Bold.Yellow,
             ),
-            (r'^(=+ )?[1-9]\d* (xfailed|xpassed).*(=+)?$', Color.BoldYellow),
-            (r'^(=+ )?no tests ran.*(=+)?$', Color.BoldYellow),
+            (r'^(=+ )?[1-9]\d* (xfailed|xpassed).*(=+)?$', Color.Bold.Yellow),
+            (r'^(=+ )?no tests ran.*(=+)?$', Color.Bold.Yellow),
             (r'.', pygments.token.Text),  # prevent error tokens
         ],
         'progress_line': [
@@ -51,8 +51,8 @@ class PytestLexer(pygments.lexer.RegexLexer):
                 '#pop',
             ),
 
-            (r'^_+ .+ _+$', Color.BoldRed),
-            (r'^E .*$', Color.BoldRed),
+            (r'^_+ .+ _+$', Color.Bold.Red),
+            (r'^E .*$', Color.Bold.Red),
             (r'^(<[^>\n]+>|[^:\n]+)(:\d+:.*$)', filename_line),
             (r'^(    |>).+$', Color.Bold),
             # otherwise pygments will reset our state machine to `root`
@@ -71,7 +71,7 @@ def stylesheet(colors=None):
     colors = colors or {}
     assert set(colors) <= set(COLORS), set(colors) - set(COLORS)
     return '.-Color-Bold { font-weight: bold; }\n' + ''.join(
-        '.-Color-Bold{k}{{ color: {v}; font-weight: bold; }}\n'
+        '.-Color-Bold.{k}{{ color: {v}; font-weight: bold; }}\n'
         '.-Color-{k}{{ color: {v}; }}\n'.format(k=k, v=colors.get(k, v))
         for k, v in sorted(COLORS.items())
     )
