@@ -1,53 +1,53 @@
 <!doctype html>
 <html><head>
 <style>body { background-color: #2d0922; color: #fff; } .-Color-Bold { font-weight: bold; }
-.-Color-BoldCyan{ color: #06989a; font-weight: bold; }
+.-Color-Bold.Cyan{ color: #06989a; font-weight: bold; }
 .-Color-Cyan{ color: #06989a; }
-.-Color-BoldGreen{ color: #4e9a06; font-weight: bold; }
+.-Color-Bold.Green{ color: #4e9a06; font-weight: bold; }
 .-Color-Green{ color: #4e9a06; }
-.-Color-BoldRed{ color: #c00; font-weight: bold; }
+.-Color-Bold.Red{ color: #c00; font-weight: bold; }
 .-Color-Red{ color: #c00; }
-.-Color-BoldYellow{ color: #c4a000; font-weight: bold; }
+.-Color-Bold.Yellow{ color: #c4a000; font-weight: bold; }
 .-Color-Yellow{ color: #c4a000; }
 </style>
 </head><body><div class="highlight"><pre><span class=" -Color -Color-Bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.6.3, pytest-4.3.0, py-1.8.0, pluggy-0.9.0
-rootdir: /tmp/pytest-of-travis/pytest-0/test_different_test_types0, inifile:
+platform linux -- Python 3.6.7, pytest-5.1.1, py-1.8.0, pluggy-0.12.0
+rootdir: /tmp/pytest-of-travis/pytest-0/test_different_test_types0
 collected 7 items
 
 f.py <span class=" -Color -Color-Red">FF</span><span class=" -Color -Color-Green">.</span><span class=" -Color -Color-Yellow">sxX</span><span class=" -Color -Color-Red">E</span>                                                             <span class=" -Color -Color-Cyan">[100%]</span>
 
 ==================================== ERRORS ====================================
-<span class=" -Color -Color-BoldRed">_________________________ ERROR at setup of test_error _________________________</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">_________________________ ERROR at setup of test_error _________________________</span>
 
     <span class=" -Color -Color-Bold">@pytest.fixture</span>
     <span class=" -Color -Color-Bold">def s():</span>
 <span class=" -Color -Color-Bold">&gt;       raise Exception(&#39;boom!&#39;)</span>
-<span class=" -Color -Color-BoldRed">E       Exception: boom!</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">E       Exception: boom!</span>
 
-<span class=" -Color -Color-BoldRed">f.py</span>:29: Exception
+<span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:29: Exception
 =================================== FAILURES ===================================
-<span class=" -Color -Color-BoldRed">_________________________________ test_answer __________________________________</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">_________________________________ test_answer __________________________________</span>
 
     <span class=" -Color -Color-Bold">def test_answer():</span>
 <span class=" -Color -Color-Bold">&gt;       assert inc(3) == 5</span>
-<span class=" -Color -Color-BoldRed">E       assert 4 == 5</span>
-<span class=" -Color -Color-BoldRed">E        +  where 4 = inc(3)</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">E       assert 4 == 5</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">E        +  where 4 = inc(3)</span>
 
-<span class=" -Color -Color-BoldRed">f.py</span>:7: AssertionError
-<span class=" -Color -Color-BoldRed">_______________________________ test_fail_stack ________________________________</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:7: AssertionError
+<span class=" -Color -Color-Bold -Color-Bold-Red">_______________________________ test_fail_stack ________________________________</span>
 
     <span class=" -Color -Color-Bold">def test_fail_stack():</span>
 <span class=" -Color -Color-Bold">&gt;       fail2()</span>
 
-<span class=" -Color -Color-BoldRed">f.py</span>:13: 
+<span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:13: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
     <span class=" -Color -Color-Bold">def fail2():</span>
 <span class=" -Color -Color-Bold">&gt;       raise RuntimeError(&#39;error!&#39;)</span>
-<span class=" -Color -Color-BoldRed">E       RuntimeError: error!</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">E       RuntimeError: error!</span>
 
-<span class=" -Color -Color-BoldRed">f.py</span>:10: RuntimeError
-<span class=" -Color -Color-BoldRed">= 2 failed, 1 passed, 1 skipped, 1 xfailed, 1 xpassed, 1 error in 0.08 seconds =</span></pre>
+<span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:10: RuntimeError
+<span class=" -Color -Color-Bold -Color-Bold-Red">==== 2 failed, 1 passed, 1 skipped, 1 xfailed, 1 xpassed, 1 error in 0.07s =====</span></pre>
 </div>
 </body></html>
