@@ -1,17 +1,17 @@
 <!doctype html>
 <html><head>
 <style>body { background-color: #2d0922; color: #fff; } .-Color-Bold { font-weight: bold; }
-.-Color-Bold.Cyan{ color: #06989a; font-weight: bold; }
+.-Color-Bold-Cyan{ color: #06989a; font-weight: bold; }
 .-Color-Cyan{ color: #06989a; }
-.-Color-Bold.Green{ color: #4e9a06; font-weight: bold; }
+.-Color-Bold-Green{ color: #4e9a06; font-weight: bold; }
 .-Color-Green{ color: #4e9a06; }
-.-Color-Bold.Red{ color: #c00; font-weight: bold; }
+.-Color-Bold-Red{ color: #c00; font-weight: bold; }
 .-Color-Red{ color: #c00; }
-.-Color-Bold.Yellow{ color: #c4a000; font-weight: bold; }
+.-Color-Bold-Yellow{ color: #c4a000; font-weight: bold; }
 .-Color-Yellow{ color: #c4a000; }
 </style>
 </head><body><div class="highlight"><pre><span class=" -Color -Color-Bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.6.7, pytest-5.1.1, py-1.8.0, pluggy-0.12.0
+platform linux -- Python 3.6.7, pytest-5.2.1, py-1.8.0, pluggy-0.13.0
 rootdir: /tmp/pytest-of-travis/pytest-0/test_collection_failure_syntax_error0
 collected 0 items / 1 errors
 
@@ -27,9 +27,9 @@ collected 0 items / 1 errors
     <span class=" -Color -Color-Red">???</span>
 <span class=" -Color -Color-Red">&lt;frozen importlib._bootstrap&gt;:665: in _load_unlocked</span>
     <span class=" -Color -Color-Red">???</span>
-<span class=" -Color -Color-Red">/home/travis/build/asottile/pygments-pytest/.tox/push/lib/python3.6/site-packages/_pytest/assertion/rewrite.py:131: in exec_module</span>
+<span class=" -Color -Color-Red">/home/travis/build/asottile/pygments-pytest/.tox/push/lib/python3.6/site-packages/_pytest/assertion/rewrite.py:133: in exec_module</span>
     <span class=" -Color -Color-Red">source_stat, co = _rewrite_test(fn, self.config)</span>
-<span class=" -Color -Color-Red">/home/travis/build/asottile/pygments-pytest/.tox/push/lib/python3.6/site-packages/_pytest/assertion/rewrite.py:280: in _rewrite_test</span>
+<span class=" -Color -Color-Red">/home/travis/build/asottile/pygments-pytest/.tox/push/lib/python3.6/site-packages/_pytest/assertion/rewrite.py:282: in _rewrite_test</span>
     <span class=" -Color -Color-Red">tree = ast.parse(source, filename=fn)</span>
 <span class=" -Color -Color-Red">/opt/python/3.6.7/lib/python3.6/ast.py:35: in parse</span>
     <span class=" -Color -Color-Red">return compile(source, filename, mode, PyCF_ONLY_AST)</span>
@@ -38,6 +38,6 @@ collected 0 items / 1 errors
 <span class=" -Color -Color-Red">E       ^</span>
 <span class=" -Color -Color-Red">E   SyntaxError: unexpected EOF while parsing</span>
 !!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
-<span class=" -Color -Color-Bold -Color-Bold-Red">=============================== 1 error in 0.27s ===============================</span></pre>
+<span class=" -Color -Color-Bold -Color-Bold-Red">=============================== 1 error in 0.28s ===============================</span></pre>
 </div>
 </body></html>
