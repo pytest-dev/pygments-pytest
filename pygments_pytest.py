@@ -71,7 +71,7 @@ def stylesheet(colors=None):
     colors = colors or {}
     assert set(colors) <= set(COLORS), set(colors) - set(COLORS)
     return '.-Color-Bold { font-weight: bold; }\n' + ''.join(
-        '.-Color-Bold.{k}{{ color: {v}; font-weight: bold; }}\n'
+        '.-Color-Bold-{k}{{ color: {v}; font-weight: bold; }}\n'
         '.-Color-{k}{{ color: {v}; }}\n'.format(k=k, v=colors.get(k, v))
         for k, v in sorted(COLORS.items())
     )
