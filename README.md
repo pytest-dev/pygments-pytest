@@ -1,5 +1,6 @@
-[![Build Status](https://travis-ci.org/asottile/pygments-pytest.svg?branch=master)](https://travis-ci.org/asottile/pygments-pytest)
-[![Coverage Status](https://coveralls.io/repos/github/asottile/pygments-pytest/badge.svg?branch=master)](https://coveralls.io/github/asottile/pygments-pytest?branch=master)
+[![Build Status](https://dev.azure.com/asottile/asottile/_apis/build/status/asottile.pygments-pytest?branchName=master)](https://dev.azure.com/asottile/asottile/_build/latest?definitionId=47&branchName=master)
+[![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/asottile/asottile/47/master.svg)](https://dev.azure.com/asottile/asottile/_build/latest?definitionId=47&branchName=master)
+[![Build Status](https://github.com/asottile/pygments-pytest/workflows/deploy/badge.svg)](https://github.com/asottile/pygments-pytest/actions)
 
 pygments-pytest
 ===============
