@@ -11,29 +11,29 @@
 .-Color-Yellow{ color: #c4a000; }
 </style>
 </head><body><div class="highlight"><pre><span class=" -Color -Color-Bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.6.7, pytest-5.2.1, py-1.8.0, pluggy-0.13.0
-rootdir: /tmp/pytest-of-travis/pytest-0/test_collection_failure_syntax_error0
+platform linux -- Python 3.8.0, pytest-5.2.2, py-1.8.0, pluggy-0.13.0
+rootdir: /tmp/pytest-of-runner/pytest-0/test_collection_failure_syntax_error0
 collected 0 items / 1 errors
 
 ==================================== ERRORS ====================================
 <span class=" -Color -Color-Bold -Color-Bold-Red">____________________________ ERROR collecting f.py _____________________________</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">/home/travis/build/asottile/pygments-pytest/.tox/push/lib/python3.6/site-packages/_pytest/python.py</span>:501: in _importtestmodule
+<span class=" -Color -Color-Bold -Color-Bold-Red">/home/runner/work/pygments-pytest/pygments-pytest/.tox/push/lib/python3.8/site-packages/_pytest/python.py</span>:501: in _importtestmodule
     <span class=" -Color -Color-Bold">mod = self.fspath.pyimport(ensuresyspath=importmode)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">/home/travis/build/asottile/pygments-pytest/.tox/push/lib/python3.6/site-packages/py/_path/local.py</span>:701: in pyimport
+<span class=" -Color -Color-Bold -Color-Bold-Red">/home/runner/work/pygments-pytest/pygments-pytest/.tox/push/lib/python3.8/site-packages/py/_path/local.py</span>:701: in pyimport
     <span class=" -Color -Color-Bold">__import__(modname)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;frozen importlib._bootstrap&gt;</span>:971: in _find_and_load
+<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;frozen importlib._bootstrap&gt;</span>:991: in _find_and_load
     <span class=" -Color -Color-Bold">???</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;frozen importlib._bootstrap&gt;</span>:955: in _find_and_load_unlocked
+<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;frozen importlib._bootstrap&gt;</span>:975: in _find_and_load_unlocked
     <span class=" -Color -Color-Bold">???</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;frozen importlib._bootstrap&gt;</span>:665: in _load_unlocked
+<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;frozen importlib._bootstrap&gt;</span>:671: in _load_unlocked
     <span class=" -Color -Color-Bold">???</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">/home/travis/build/asottile/pygments-pytest/.tox/push/lib/python3.6/site-packages/_pytest/assertion/rewrite.py</span>:133: in exec_module
+<span class=" -Color -Color-Bold -Color-Bold-Red">/home/runner/work/pygments-pytest/pygments-pytest/.tox/push/lib/python3.8/site-packages/_pytest/assertion/rewrite.py</span>:133: in exec_module
     <span class=" -Color -Color-Bold">source_stat, co = _rewrite_test(fn, self.config)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">/home/travis/build/asottile/pygments-pytest/.tox/push/lib/python3.6/site-packages/_pytest/assertion/rewrite.py</span>:282: in _rewrite_test
+<span class=" -Color -Color-Bold -Color-Bold-Red">/home/runner/work/pygments-pytest/pygments-pytest/.tox/push/lib/python3.8/site-packages/_pytest/assertion/rewrite.py</span>:282: in _rewrite_test
     <span class=" -Color -Color-Bold">tree = ast.parse(source, filename=fn)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/python/3.6.7/lib/python3.6/ast.py</span>:35: in parse
-    <span class=" -Color -Color-Bold">return compile(source, filename, mode, PyCF_ONLY_AST)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">E     File &quot;/tmp/pytest-of-travis/pytest-0/test_collection_failure_syntax_error0/f.py&quot;, line 1</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.0/x64/lib/python3.8/ast.py</span>:47: in parse
+    <span class=" -Color -Color-Bold">return compile(source, filename, mode, flags,</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">E     File &quot;/tmp/pytest-of-runner/pytest-0/test_collection_failure_syntax_error0/f.py&quot;, line 1</span>
 <span class=" -Color -Color-Bold -Color-Bold-Red">E       (</span>
 <span class=" -Color -Color-Bold -Color-Bold-Red">E       ^</span>
 <span class=" -Color -Color-Bold -Color-Bold-Red">E   SyntaxError: unexpected EOF while parsing</span>
