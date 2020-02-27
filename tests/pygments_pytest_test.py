@@ -51,11 +51,11 @@ def compare(testdir, request):
         ansi = highlight(ANSI_LEXER, ret.stdout.str())
         pytest = highlight(PYTEST_LEXER, uncolor(ret.stdout.str()))
 
-        fname = '{}_ansi.html'.format(request.node.name)
+        fname = f'{request.node.name}_ansi.html'
         with open(os.path.join(DEMO_DIR, fname), 'w') as f:
             f.write(ansi)
 
-        fname = '{}_pytest.html'.format(request.node.name)
+        fname = f'{request.node.name}_pytest.html'
         with open(os.path.join(DEMO_DIR, fname), 'w') as f:
             f.write(pytest)
 
@@ -128,7 +128,7 @@ def test_deprecated_raises_exec_failure(compare):
     compare(
         'import pytest\n'
         'def test():\n'
-        '    pytest.raises(ValueError, "int(None)")\n'
+        '    pytest.raises(ValueError, "int(None)")\n',
     )
 
 
@@ -152,7 +152,7 @@ def test_only_xpass(compare):
     compare(
         'import pytest\n'
         '@pytest.mark.xfail\n'
-        'def test(): pass\n'
+        'def test(): pass\n',
     )
 
 
@@ -161,7 +161,7 @@ def test_only_xfail(compare):
         'import pytest\n'
         '@pytest.mark.xfail\n'
         'def test():\n'
-        '    assert False\n'
+        '    assert False\n',
     )
 
 

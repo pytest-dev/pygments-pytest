@@ -1,8 +1,16 @@
 import os.path
 import re
+from typing import Any
+from typing import Dict
+from typing import Generator
+from typing import Match
+from typing import Optional
+from typing import Tuple
 
 import pygments.lexer
 import pygments.token
+
+Tok = Tuple[int, Any, str]
 
 Color = pygments.token.Token.Color
 STATUSES = ('failed', 'passed', 'skipped', 'deselected', 'no tests ran')
@@ -13,9 +21,9 @@ class PytestLexer(pygments.lexer.RegexLexer):
     aliases = ('pytest',)
     flags = re.MULTILINE
 
-    def filename_line(self, match):
-        yield match.start(1), Color.Bold.Red, match.group(1)
-        yield match.start(2), pygments.token.Text, match.group(2)
+    def filename_line(self, match: Match[str]) -> Generator[Tok, None, None]:
+        yield match.start(1), Color.Bold.Red, match[1]
+        yield match.start(2), pygments.token.Text, match[2]
 
     tokens = {
         'root': [
@@ -67,7 +75,7 @@ COLORS = {
 }
 
 
-def stylesheet(colors=None):
+def stylesheet(colors: Optional[Dict[str, str]] = None) -> str:
     colors = colors or {}
     assert set(colors) <= set(COLORS), set(colors) - set(COLORS)
     return '.-Color-Bold { font-weight: bold; }\n' + ''.join(
@@ -77,8 +85,8 @@ def stylesheet(colors=None):
     )
 
 
-def setup(app):  # pragma: no cover (sphinx)
-    def copy_stylesheet(app, exception):
+def setup(app: Any) -> None:  # pragma: no cover (sphinx)
+    def copy_stylesheet(app: Any, exception: Optional[Exception]) -> None:
         if exception:
             return
 
