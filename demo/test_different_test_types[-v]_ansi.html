@@ -1,8 +1,6 @@
 <!doctype html>
 <html><head>
 <style>body { background-color: #2d0922; color: #fff; } .-Color-Bold { font-weight: bold; }
-.-Color-Bold-Cyan{ color: #06989a; font-weight: bold; }
-.-Color-Cyan{ color: #06989a; }
 .-Color-Bold-Green{ color: #4e9a06; font-weight: bold; }
 .-Color-Green{ color: #4e9a06; }
 .-Color-Bold-Red{ color: #c00; font-weight: bold; }
@@ -10,52 +8,59 @@
 .-Color-Bold-Yellow{ color: #c4a000; font-weight: bold; }
 .-Color-Yellow{ color: #c4a000; }
 </style>
-</head><body><div class="highlight"><pre><span class=" -Color -Color-Bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.8.0, pytest-5.2.2, py-1.8.0, pluggy-0.13.0 -- /home/runner/work/pygments-pytest/pygments-pytest/.tox/push/bin/python
+</head><body><div class="highlight"><pre><span class=" -Color -Color-Bold">=============================</span> <span class=" -Color -Color-Bold">test</span> <span class=" -Color -Color-Bold">session</span> <span class=" -Color -Color-Bold">starts</span> <span class=" -Color -Color-Bold">==============================</span>
+platform linux -- Python 3.8.1, pytest-5.3.5, py-1.8.1, pluggy-0.13.1 -- /home/runner/work/pygments-pytest/pygments-pytest/.tox/push/bin/python
 cachedir: .pytest_cache
 rootdir: /tmp/pytest-of-runner/pytest-0/test_different_test_types1
-<span class=" -Color -Color-Bold">collecting ...</span> collected 7 items
+<span class=" -Color -Color-Bold">collecting</span> <span class=" -Color -Color-Bold">...</span> collected 8 items
 
-f.py::test_answer <span class=" -Color -Color-Red">FAILED</span>                                                 <span class=" -Color -Color-Cyan">[ 14%]</span>
-f.py::test_fail_stack <span class=" -Color -Color-Red">FAILED</span>                                             <span class=" -Color -Color-Cyan">[ 28%]</span>
-f.py::test <span class=" -Color -Color-Green">PASSED</span>                                                        <span class=" -Color -Color-Cyan">[ 42%]</span>
-f.py::test_skip <span class=" -Color -Color-Yellow">SKIPPED</span>                                                  <span class=" -Color -Color-Cyan">[ 57%]</span>
-f.py::test_xfail <span class=" -Color -Color-Yellow">XFAIL</span>                                                   <span class=" -Color -Color-Cyan">[ 71%]</span>
-f.py::test_Xxfail <span class=" -Color -Color-Yellow">XPASS</span>                                                  <span class=" -Color -Color-Cyan">[ 85%]</span>
-f.py::test_error <span class=" -Color -Color-Red">ERROR</span>                                                   <span class=" -Color -Color-Cyan">[100%]</span>
+f.py::test_answer <span class=" -Color -Color-Red">FAILED</span>                                                 <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">12%]</span>
+f.py::test_fail_stack <span class=" -Color -Color-Red">FAILED</span>                                             <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">25%]</span>
+f.py::test <span class=" -Color -Color-Green">PASSED</span>                                                        <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">37%]</span>
+f.py::test_skip <span class=" -Color -Color-Yellow">SKIPPED</span>                                                  <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">50%]</span>
+f.py::test_xfail <span class=" -Color -Color-Yellow">XFAIL</span>                                                   <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">62%]</span>
+f.py::test_Xxfail <span class=" -Color -Color-Yellow">XPASS</span>                                                  <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">75%]</span>
+f.py::test_error <span class=" -Color -Color-Red">ERROR</span>                                                   <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">87%]</span>
+f.py::test_warning <span class=" -Color -Color-Green">PASSED</span>                                                <span class=" -Color -Color-Red">[100%]</span>
 
 ==================================== ERRORS ====================================
-<span class=" -Color -Color-Bold -Color-Bold-Red">_________________________ ERROR at setup of test_error _________________________</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">_________________________</span> <span class=" -Color -Color-Bold -Color-Bold-Red">ERROR</span> <span class=" -Color -Color-Bold -Color-Bold-Red">at</span> <span class=" -Color -Color-Bold -Color-Bold-Red">setup</span> <span class=" -Color -Color-Bold -Color-Bold-Red">of</span> <span class=" -Color -Color-Bold -Color-Bold-Red">test_error</span> <span class=" -Color -Color-Bold -Color-Bold-Red">_________________________</span>
 
     <span class=" -Color -Color-Bold">@pytest.fixture</span>
-    <span class=" -Color -Color-Bold">def s():</span>
-<span class=" -Color -Color-Bold">&gt;       raise Exception(&#39;boom!&#39;)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">E       Exception: boom!</span>
+    <span class=" -Color -Color-Bold">def</span> <span class=" -Color -Color-Bold">s():</span>
+<span class=" -Color -Color-Bold">&gt;</span>       <span class=" -Color -Color-Bold">raise</span> <span class=" -Color -Color-Bold">Exception(&#39;boom!&#39;)</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">E</span>       <span class=" -Color -Color-Bold -Color-Bold-Red">Exception:</span> <span class=" -Color -Color-Bold -Color-Bold-Red">boom!</span>
 
-<span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:29: Exception
+<span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:30: Exception
 =================================== FAILURES ===================================
-<span class=" -Color -Color-Bold -Color-Bold-Red">_________________________________ test_answer __________________________________</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">_________________________________</span> <span class=" -Color -Color-Bold -Color-Bold-Red">test_answer</span> <span class=" -Color -Color-Bold -Color-Bold-Red">__________________________________</span>
 
-    <span class=" -Color -Color-Bold">def test_answer():</span>
-<span class=" -Color -Color-Bold">&gt;       assert inc(3) == 5</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">E       assert 4 == 5</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">E         -4</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">E         +5</span>
+    <span class=" -Color -Color-Bold">def</span> <span class=" -Color -Color-Bold">test_answer():</span>
+<span class=" -Color -Color-Bold">&gt;</span>       <span class=" -Color -Color-Bold">assert</span> <span class=" -Color -Color-Bold">inc(3)</span> <span class=" -Color -Color-Bold">==</span> <span class=" -Color -Color-Bold">5</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">E</span>       <span class=" -Color -Color-Bold -Color-Bold-Red">assert</span> <span class=" -Color -Color-Bold -Color-Bold-Red">4</span> <span class=" -Color -Color-Bold -Color-Bold-Red">==</span> <span class=" -Color -Color-Bold -Color-Bold-Red">5</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">E</span>         <span class=" -Color -Color-Bold -Color-Bold-Red">-4</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">E</span>         <span class=" -Color -Color-Bold -Color-Bold-Red">+5</span>
 
-<span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:7: AssertionError
-<span class=" -Color -Color-Bold -Color-Bold-Red">_______________________________ test_fail_stack ________________________________</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:8: AssertionError
+<span class=" -Color -Color-Bold -Color-Bold-Red">_______________________________</span> <span class=" -Color -Color-Bold -Color-Bold-Red">test_fail_stack</span> <span class=" -Color -Color-Bold -Color-Bold-Red">________________________________</span>
 
-    <span class=" -Color -Color-Bold">def test_fail_stack():</span>
-<span class=" -Color -Color-Bold">&gt;       fail2()</span>
+    <span class=" -Color -Color-Bold">def</span> <span class=" -Color -Color-Bold">test_fail_stack():</span>
+<span class=" -Color -Color-Bold">&gt;</span>       <span class=" -Color -Color-Bold">fail2()</span>
 
-<span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:13: 
+<span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:14: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-    <span class=" -Color -Color-Bold">def fail2():</span>
-<span class=" -Color -Color-Bold">&gt;       raise RuntimeError(&#39;error!&#39;)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">E       RuntimeError: error!</span>
+    <span class=" -Color -Color-Bold">def</span> <span class=" -Color -Color-Bold">fail2():</span>
+<span class=" -Color -Color-Bold">&gt;</span>       <span class=" -Color -Color-Bold">raise</span> <span class=" -Color -Color-Bold">RuntimeError(&#39;error!&#39;)</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">E</span>       <span class=" -Color -Color-Bold -Color-Bold-Red">RuntimeError:</span> <span class=" -Color -Color-Bold -Color-Bold-Red">error!</span>
 
-<span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:10: RuntimeError
-<span class=" -Color -Color-Bold -Color-Bold-Red">==== 2 failed, 1 passed, 1 skipped, 1 xfailed, 1 xpassed, 1 error in 0.05s =====</span></pre>
+<span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:11: RuntimeError
+<span class=" -Color -Color-Yellow">===============================</span> <span class=" -Color -Color-Yellow">warnings</span> <span class=" -Color -Color-Yellow">summary</span> <span class=" -Color -Color-Yellow">===============================</span>
+f.py::test_warning
+  /tmp/pytest-of-runner/pytest-0/test_different_test_types1/f.py:36: UserWarning: WARNING!
+    warnings.warn(UserWarning(&quot;WARNING!&quot;))
+
+-- Docs: https://docs.pytest.org/en/latest/warnings.html
+<span class=" -Color -Color-Red">=</span> <span class=" -Color -Color-Bold -Color-Bold-Red">2</span> <span class=" -Color -Color-Bold -Color-Bold-Red">failed</span>, <span class=" -Color -Color-Green">2</span> <span class=" -Color -Color-Green">passed</span>, <span class=" -Color -Color-Yellow">1</span> <span class=" -Color -Color-Yellow">skipped</span>, <span class=" -Color -Color-Yellow">1</span> <span class=" -Color -Color-Yellow">xfailed</span>, <span class=" -Color -Color-Yellow">1</span> <span class=" -Color -Color-Yellow">xpassed</span>, <span class=" -Color -Color-Yellow">1</span> <span class=" -Color -Color-Yellow">warning</span>, <span class=" -Color -Color-Bold -Color-Bold-Red">1</span> <span class=" -Color -Color-Bold -Color-Bold-Red">error</span> <span class=" -Color -Color-Red">in</span> <span class=" -Color -Color-Red">0.03s</span> <span class=" -Color -Color-Red">=</span></pre>
 </div>
 </body></html>
