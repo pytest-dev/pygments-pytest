@@ -16,6 +16,7 @@ ANSI_ESCAPE = re.compile(r'\033\[[^m]*m')
 NORM_WS_START_RE = re.compile(r'(<[^/][^>]+>)(\s*)')
 NORM_WS_END_RE = re.compile(r'(\s*)(</[^>]+>)')
 EMPTY_TAG_RE = re.compile(r'<[^/][^>]+></[^>]+>')
+TAG_WITH_WS = re.compile(r'(<[^/][^>]+>)([^<]*\s[^<]*)(</[^>]+>)')
 
 DEMO_DIR = os.path.join(os.path.dirname(__file__), '../demo')
 
@@ -37,6 +38,16 @@ def highlight(lexer, s):
     ret = NORM_WS_START_RE.sub(r'\2\1', ret)
     ret = NORM_WS_END_RE.sub(r'\2\1', ret)
     ret = EMPTY_TAG_RE.sub('', ret)
+
+    def ws_cb(match):
+        parts = re.split(r'(\s+)', match[2])
+        return ''.join(
+            f'{match[1]}{part}{match[3]}' if not part.isspace() else part
+            for part in parts
+        )
+
+    ret = TAG_WITH_WS.sub(ws_cb, ret)
+
     return HTML.replace('HTML', ret)
 
 
@@ -77,6 +88,7 @@ def test_warnings(compare):
 
 
 DIFFERENT_TYPES_SRC = '''\
+import warnings
 import pytest
 
 def inc(x):
@@ -109,6 +121,9 @@ def s():
 
 def test_error(s):
     pass
+
+def test_warning():
+    warnings.warn(UserWarning("WARNING!"))
 '''
 
 
