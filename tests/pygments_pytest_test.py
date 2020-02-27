@@ -16,6 +16,7 @@ ANSI_ESCAPE = re.compile(r'\033\[[^m]*m')
 NORM_WS_START_RE = re.compile(r'(<[^/][^>]+>)(\s*)')
 NORM_WS_END_RE = re.compile(r'(\s*)(</[^>]+>)')
 EMPTY_TAG_RE = re.compile(r'<[^/][^>]+></[^>]+>')
+TAG_WITH_WS = re.compile(r'(<[^/][^>]+>)([^<]*\s[^<]*)(</[^>]+>)')
 
 DEMO_DIR = os.path.join(os.path.dirname(__file__), '../demo')
 
@@ -37,6 +38,16 @@ def highlight(lexer, s):
     ret = NORM_WS_START_RE.sub(r'\2\1', ret)
     ret = NORM_WS_END_RE.sub(r'\2\1', ret)
     ret = EMPTY_TAG_RE.sub('', ret)
+
+    def ws_cb(match):
+        parts = re.split(r'(\s+)', match[2])
+        return ''.join(
+            f'{match[1]}{part}{match[3]}' if not part.isspace() else part
+            for part in parts
+        )
+
+    ret = TAG_WITH_WS.sub(ws_cb, ret)
+
     return HTML.replace('HTML', ret)
 
 
@@ -51,11 +62,11 @@ def compare(testdir, request):
         ansi = highlight(ANSI_LEXER, ret.stdout.str())
         pytest = highlight(PYTEST_LEXER, uncolor(ret.stdout.str()))
 
-        fname = '{}_ansi.html'.format(request.node.name)
+        fname = f'{request.node.name}_ansi.html'
         with open(os.path.join(DEMO_DIR, fname), 'w') as f:
             f.write(ansi)
 
-        fname = '{}_pytest.html'.format(request.node.name)
+        fname = f'{request.node.name}_pytest.html'
         with open(os.path.join(DEMO_DIR, fname), 'w') as f:
             f.write(pytest)
 
@@ -77,6 +88,7 @@ def test_warnings(compare):
 
 
 DIFFERENT_TYPES_SRC = '''\
+import warnings
 import pytest
 
 def inc(x):
@@ -109,6 +121,9 @@ def s():
 
 def test_error(s):
     pass
+
+def test_warning():
+    warnings.warn(UserWarning("WARNING!"))
 '''
 
 
@@ -128,7 +143,7 @@ def test_deprecated_raises_exec_failure(compare):
     compare(
         'import pytest\n'
         'def test():\n'
-        '    pytest.raises(ValueError, "int(None)")\n'
+        '    pytest.raises(ValueError, "int(None)")\n',
     )
 
 
@@ -152,7 +167,7 @@ def test_only_xpass(compare):
     compare(
         'import pytest\n'
         '@pytest.mark.xfail\n'
-        'def test(): pass\n'
+        'def test(): pass\n',
     )
 
 
@@ -161,7 +176,7 @@ def test_only_xfail(compare):
         'import pytest\n'
         '@pytest.mark.xfail\n'
         'def test():\n'
-        '    assert False\n'
+        '    assert False\n',
     )
 
 
