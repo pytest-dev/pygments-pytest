@@ -107,7 +107,7 @@ class PytestLexer(pygments.lexer.RegexLexer):
             (r'^_+ .+ _+$', Color.Bold.Red),
             (r'^E .*$', Color.Bold.Red),
             (r'^(<[^>\n]+>|[^:\n]+)(:\d+:.*$)', filename_line),
-            (r'^(    |>).+$', Color.Bold),
+            (r'^(    |>).+$', pygments.token.Text),
             # otherwise pygments will reset our state machine to `root`
             (r'\n', pygments.token.Text),
             (r'.', pygments.token.Text),  # prevent error tokens
