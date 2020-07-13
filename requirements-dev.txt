@@ -1,6 +1,5 @@
 covdefaults
 coverage
 markdown-to-presentation>=0.0.22
-pre-commit
 pygments-ansi-color
 pytest>=6.0.0rc1
