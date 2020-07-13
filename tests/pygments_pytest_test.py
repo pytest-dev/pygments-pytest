@@ -56,7 +56,8 @@ def compare(testdir, request):
     def compare_fn(src, args=()):
         testdir.tmpdir.join('f.py').write(src)
 
-        args += ('f.py', '--color=yes') + tuple(shlex.split(request.param))
+        args += (*shlex.split(request.param),)
+        args += ('--color=yes', '--code-highlight=no', 'f.py')
         ret = testdir.runpytest(*args)
 
         ansi = highlight(ANSI_LEXER, ret.stdout.str())
