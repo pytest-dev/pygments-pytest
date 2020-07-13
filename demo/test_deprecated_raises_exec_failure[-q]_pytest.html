@@ -12,11 +12,13 @@
 =================================== FAILURES ===================================
 <span class=" -Color -Color-Bold -Color-Bold-Red">_____________________________________</span> <span class=" -Color -Color-Bold -Color-Bold-Red">test</span> <span class=" -Color -Color-Bold -Color-Bold-Red">_____________________________________</span>
 
-    <span class=" -Color -Color-Bold">def</span> <span class=" -Color -Color-Bold">test():</span>
-<span class=" -Color -Color-Bold">&gt;</span>       <span class=" -Color -Color-Bold">pytest.raises(ValueError,</span> <span class=" -Color -Color-Bold">&quot;int(None)&quot;)</span>
+    def test():
+&gt;       pytest.raises(ValueError, &quot;int(None)&quot;)
 <span class=" -Color -Color-Bold -Color-Bold-Red">E</span>       <span class=" -Color -Color-Bold -Color-Bold-Red">TypeError:</span> <span class=" -Color -Color-Bold -Color-Bold-Red">&#39;int(None)&#39;</span> <span class=" -Color -Color-Bold -Color-Bold-Red">object</span> <span class=" -Color -Color-Bold -Color-Bold-Red">(type:</span> <span class=" -Color -Color-Bold -Color-Bold-Red">&lt;class</span> <span class=" -Color -Color-Bold -Color-Bold-Red">&#39;str&#39;&gt;)</span> <span class=" -Color -Color-Bold -Color-Bold-Red">must</span> <span class=" -Color -Color-Bold -Color-Bold-Red">be</span> <span class=" -Color -Color-Bold -Color-Bold-Red">callable</span>
 
 <span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:3: TypeError
+=========================== short test summary info ============================
+FAILED f.py::test - TypeError: &#39;int(None)&#39; object (type: &lt;class &#39;str&#39;&gt;) must ...
 <span class=" -Color -Color-Bold -Color-Bold-Red">1</span> <span class=" -Color -Color-Bold -Color-Bold-Red">failed</span> <span class=" -Color -Color-Red">in</span> <span class=" -Color -Color-Red">0.01s</span></pre>
 </div>
 </body></html>
