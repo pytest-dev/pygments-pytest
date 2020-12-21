@@ -9,7 +9,7 @@
 .-Color-Yellow{ color: #c4a000; }
 </style>
 </head><body><div class="highlight"><pre><span class=" -Color -Color-Bold">=============================</span> <span class=" -Color -Color-Bold">test</span> <span class=" -Color -Color-Bold">session</span> <span class=" -Color -Color-Bold">starts</span> <span class=" -Color -Color-Bold">==============================</span>
-platform linux -- Python 3.9.0, pytest-6.1.2, py-1.9.0, pluggy-0.13.1 -- /home/runner/work/pygments-pytest/pygments-pytest/.tox/push/bin/python
+platform linux -- Python 3.9.1, pytest-6.2.1, py-1.10.0, pluggy-0.13.1 -- /home/runner/work/pygments-pytest/pygments-pytest/.tox/push/bin/python
 cachedir: .pytest_cache
 rootdir: /tmp/pytest-of-runner/pytest-0/test_different_test_types1
 <span class=" -Color -Color-Bold">collecting</span> <span class=" -Color -Color-Bold">...</span> collected 8 items
@@ -17,7 +17,7 @@ rootdir: /tmp/pytest-of-runner/pytest-0/test_different_test_types1
 f.py::test_answer <span class=" -Color -Color-Red">FAILED</span>                                                 <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">12%]</span>
 f.py::test_fail_stack <span class=" -Color -Color-Red">FAILED</span>                                             <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">25%]</span>
 f.py::test <span class=" -Color -Color-Green">PASSED</span>                                                        <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">37%]</span>
-f.py::test_skip <span class=" -Color -Color-Yellow">SKIPPED</span>                                                  <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">50%]</span>
+f.py::test_skip <span class=" -Color -Color-Yellow">SKIPPED</span> (&lt;Skipped instance&gt;)                             <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">50%]</span>
 f.py::test_xfail <span class=" -Color -Color-Yellow">XFAIL</span>                                                   <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">62%]</span>
 f.py::test_Xxfail <span class=" -Color -Color-Yellow">XPASS</span>                                                  <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">75%]</span>
 f.py::test_error <span class=" -Color -Color-Red">ERROR</span>                                                   <span class=" -Color -Color-Red">[</span> <span class=" -Color -Color-Red">87%]</span>
@@ -65,6 +65,6 @@ f.py::test_warning
 FAILED f.py::test_answer - assert 4 == 5
 FAILED f.py::test_fail_stack - RuntimeError: error!
 ERROR f.py::test_error - Exception: boom!
-<span class=" -Color -Color-Red">=</span> <span class=" -Color -Color-Bold -Color-Bold-Red">2</span> <span class=" -Color -Color-Bold -Color-Bold-Red">failed</span>, <span class=" -Color -Color-Green">2</span> <span class=" -Color -Color-Green">passed</span>, <span class=" -Color -Color-Yellow">1</span> <span class=" -Color -Color-Yellow">skipped</span>, <span class=" -Color -Color-Yellow">1</span> <span class=" -Color -Color-Yellow">xfailed</span>, <span class=" -Color -Color-Yellow">1</span> <span class=" -Color -Color-Yellow">xpassed</span>, <span class=" -Color -Color-Yellow">1</span> <span class=" -Color -Color-Yellow">warning</span>, <span class=" -Color -Color-Bold -Color-Bold-Red">1</span> <span class=" -Color -Color-Bold -Color-Bold-Red">error</span> <span class=" -Color -Color-Red">in</span> <span class=" -Color -Color-Red">0.03s</span> <span class=" -Color -Color-Red">=</span></pre>
+<span class=" -Color -Color-Red">=</span> <span class=" -Color -Color-Bold -Color-Bold-Red">2</span> <span class=" -Color -Color-Bold -Color-Bold-Red">failed</span>, <span class=" -Color -Color-Green">2</span> <span class=" -Color -Color-Green">passed</span>, <span class=" -Color -Color-Yellow">1</span> <span class=" -Color -Color-Yellow">skipped</span>, <span class=" -Color -Color-Yellow">1</span> <span class=" -Color -Color-Yellow">xfailed</span>, <span class=" -Color -Color-Yellow">1</span> <span class=" -Color -Color-Yellow">xpassed</span>, <span class=" -Color -Color-Yellow">1</span> <span class=" -Color -Color-Yellow">warning</span>, <span class=" -Color -Color-Bold -Color-Bold-Red">1</span> <span class=" -Color -Color-Bold -Color-Bold-Red">error</span> <span class=" -Color -Color-Red">in</span> <span class=" -Color -Color-Red">0.04s</span> <span class=" -Color -Color-Red">=</span></pre>
 </div>
 </body></html>
