@@ -91,7 +91,7 @@ class PytestLexer(pygments.lexer.RegexLexer):
             (r'.', pygments.token.Text),  # prevent error tokens
         ],
         'progress_line': [
-            (r'^[^ ]+ (?=[^ \n]+ +\[)', pygments.token.Text),
+            (r'^[^ ]+ (?=[^ \n]+(?: \(.+\))? +\[)', pygments.token.Text),
             (r'PASSED|\.', Color.Green),
             (r' +', pygments.token.Text),
             (r'\n', pygments.token.Text, '#pop'),
@@ -114,8 +114,14 @@ class PytestLexer(pygments.lexer.RegexLexer):
         ],
     }
 
+    def _skip_xfail(self, match: Match[str]) -> Generator[Tok, None, None]:
+        yield match.start(1), Color.Yellow, match[1]
+        yield match.start(2), pygments.token.Text, match[2]
+
     # the progress percentage is annoyingly stateful
     _PROGRESS = (r'^(?=.+\[ *\d+%\]$)', pygments.token.Text)
+    _SKIP_XFAIL = (r'(SKIPPED|XFAIL)( \(.+\))', _skip_xfail)
+    _SKIP_XFAIL_P = (*_SKIP_XFAIL, ('root_w', 'progress_line_w'))
     _WARN = (r'SKIPPED|XPASS|XFAIL|xfail|s|X|x', Color.Yellow)
     _WARN_P = (*_WARN, ('root_w', 'progress_line_w'))
     _ERR = (r'ERROR|FAILED|E|F', Color.Red)
@@ -132,9 +138,15 @@ class PytestLexer(pygments.lexer.RegexLexer):
     tokens['progress_line_w'] = list(tokens['progress_line'])
     tokens['progress_line_e'] = list(tokens['progress_line'])
 
-    tokens['progress_line'].extend((_WARN_P, _ERR_P, (_PERCENT, Color.Green)))
-    tokens['progress_line_w'].extend((_WARN, _ERR_P, (_PERCENT, Color.Yellow)))
-    tokens['progress_line_e'].extend((_WARN, _ERR, (_PERCENT, Color.Red)))
+    tokens['progress_line'].extend((
+        _SKIP_XFAIL_P, _WARN_P, _ERR_P, (_PERCENT, Color.Green),
+    ))
+    tokens['progress_line_w'].extend((
+        _SKIP_XFAIL, _WARN, _ERR_P, (_PERCENT, Color.Yellow),
+    ))
+    tokens['progress_line_e'].extend((
+        _SKIP_XFAIL, _WARN, _ERR, (_PERCENT, Color.Red),
+    ))
 
 
 COLORS = {'Green': '#4e9a06', 'Red': '#c00', 'Yellow': '#c4a000'}
