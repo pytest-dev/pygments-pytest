@@ -1,10 +1,10 @@
+from __future__ import annotations
+
 import os.path
 import re
 from typing import Any
-from typing import Dict
 from typing import Generator
 from typing import Match
-from typing import Optional
 from typing import Tuple
 
 import pygments.lexer
@@ -152,7 +152,7 @@ class PytestLexer(pygments.lexer.RegexLexer):
 COLORS = {'Green': '#4e9a06', 'Red': '#c00', 'Yellow': '#c4a000'}
 
 
-def stylesheet(colors: Optional[Dict[str, str]] = None) -> str:
+def stylesheet(colors: dict[str, str] | None = None) -> str:
     colors = colors or {}
     assert set(colors) <= set(COLORS), set(colors) - set(COLORS)
     return '.-Color-Bold { font-weight: bold; }\n' + ''.join(
@@ -163,7 +163,7 @@ def stylesheet(colors: Optional[Dict[str, str]] = None) -> str:
 
 
 def setup(app: Any) -> None:  # pragma: no cover (sphinx)
-    def copy_stylesheet(app: Any, exception: Optional[Exception]) -> None:
+    def copy_stylesheet(app: Any, exception: Exception | None) -> None:
         if exception:
             return
 
