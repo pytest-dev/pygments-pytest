@@ -1,7 +1,7 @@
-[![Build Status](https://dev.azure.com/asottile/asottile/_apis/build/status/asottile.pygments-pytest?branchName=master)](https://dev.azure.com/asottile/asottile/_build/latest?definitionId=47&branchName=master)
-[![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/asottile/asottile/47/master.svg)](https://dev.azure.com/asottile/asottile/_build/latest?definitionId=47&branchName=master)
+[![Build Status](https://dev.azure.com/asottile/asottile/_apis/build/status/asottile.pygments-pytest?branchName=main)](https://dev.azure.com/asottile/asottile/_build/latest?definitionId=47&branchName=main)
+[![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/asottile/asottile/47/main.svg)](https://dev.azure.com/asottile/asottile/_build/latest?definitionId=47&branchName=main)
 [![Build Status](https://github.com/asottile/pygments-pytest/workflows/deploy/badge.svg)](https://github.com/asottile/pygments-pytest/actions)
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/asottile/pygments-pytest/master.svg)](https://results.pre-commit.ci/latest/github/asottile/pygments-pytest/master)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/asottile/pygments-pytest/main.svg)](https://results.pre-commit.ci/latest/github/asottile/pygments-pytest/main)
 
 pygments-pytest
 ===============
