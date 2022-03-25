@@ -14,7 +14,7 @@ HTML = '''\
 
 
 def main() -> int:
-    links = "".join(
+    links = ''.join(
         f'<li><a href="demo/{f}">{f}</a></li>'
         for f in sorted(os.listdir('demo')) if f.endswith('_pytest.html')
     )
