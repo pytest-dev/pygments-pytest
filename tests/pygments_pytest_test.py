@@ -183,6 +183,13 @@ def test_only_xfail(compare):
     )
 
 
+def test_fail_with_class(compare):
+    compare(
+        'class TestThing:\n'
+        '    def test_fail(self): assert False\n',
+    )
+
+
 @pytest.mark.xfail
 def test_collection_failure_syntax_error(compare):
     compare('(')

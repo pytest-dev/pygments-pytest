@@ -13,7 +13,9 @@ import pygments.token
 Tok = Tuple[int, Any, str]
 
 Color = pygments.token.Token.Color
-STATUSES = ('failed', 'passed', 'skipped', 'deselected', 'no tests ran')
+STATUSES = (
+    'failed', 'passed', 'skipped', 'deselected', 'error', 'no tests ran',
+)
 BOLDIFY = {
     Color.Red: Color.Bold.Red,
     Color.Green: Color.Bold.Green,
@@ -66,6 +68,15 @@ class PytestLexer(pygments.lexer.RegexLexer):
         if match['after']:
             yield match.start('after'), start_end_color, match['after']
 
+    _next_section = (
+        (r'(?=^=+ )', pygments.token.Text, '#pop'),
+        (
+            r'(?=^[1-9]\d* ({}))'.format('|'.join(STATUSES)),
+            pygments.token.Text,
+            '#pop',
+        ),
+    )
+
     tokens = {
         'root': [
             (r'^=+ test session starts =+$', Color.Bold),
@@ -73,6 +84,7 @@ class PytestLexer(pygments.lexer.RegexLexer):
             (r'^(?=.+\[ *\d+%\]$)', pygments.token.Text, 'progress_line'),
             (r'^=+ (ERRORS|FAILURES) =+$', pygments.token.Text, 'failures'),
             (r'^=+ warnings summary( \(final\))? =+$', Color.Yellow),
+            (r'^=+ short test summary info =+$\n', Color.Bold.Cyan, 'summary'),
             (
                 r'^(?P<before>=+ )?'
                 r'(?P<failed>\d+ failed)?(?P<failedcomma>, )?'
@@ -97,12 +109,7 @@ class PytestLexer(pygments.lexer.RegexLexer):
             (r'\n', pygments.token.Text, '#pop'),
         ],
         'failures': [
-            (r'(?=^=+ )', pygments.token.Text, '#pop'),
-            (
-                r'(?=^[1-9]\d* ({}))'.format('|'.join(STATUSES)),
-                pygments.token.Text,
-                '#pop',
-            ),
+            *_next_section,
 
             (r'^_+ .+ _+$', Color.Bold.Red),
             (r'^E .*$', Color.Bold.Red),
@@ -111,6 +118,17 @@ class PytestLexer(pygments.lexer.RegexLexer):
             # otherwise pygments will reset our state machine to `root`
             (r'\n', pygments.token.Text),
             (r'.', pygments.token.Text),  # prevent error tokens
+        ],
+        'summary': [
+            *_next_section,
+
+            (r'^(ERROR|FAILED)', Color.Red),
+            (r'^PASSED', Color.Green),
+            (r'(SKIPPED|XFAILED|XPASS)', Color.Yellow),
+
+            (r'(?<!::).+?::', pygments.token.Text),
+            (r'.+(?= - )', Color.Bold),
+            (r'.+$\n', pygments.token.Text),
         ],
     }
 
@@ -149,7 +167,12 @@ class PytestLexer(pygments.lexer.RegexLexer):
     ))
 
 
-COLORS = {'Green': '#4e9a06', 'Red': '#c00', 'Yellow': '#c4a000'}
+COLORS = {
+    'Green': '#4e9a06',
+    'Red': '#c00',
+    'Yellow': '#c4a000',
+    'Cyan': '#06989a',
+}
 
 
 def stylesheet(colors: dict[str, str] | None = None) -> str:
