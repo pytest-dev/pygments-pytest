@@ -12,22 +12,22 @@
 </style>
 </head><body><div class="highlight"><pre><span class=" -Color -Color-Bold">=============================</span> <span class=" -Color -Color-Bold">test</span> <span class=" -Color -Color-Bold">session</span> <span class=" -Color -Color-Bold">starts</span> <span class=" -Color -Color-Bold">==============================</span>
 platform linux -- Python 3.10.8, pytest-7.2.0, pluggy-1.0.0
-rootdir: /tmp/pytest-of-runner/pytest-0/test_blank_code_line0
+rootdir: /tmp/pytest-of-runner/pytest-0/test_fail_with_class0
 collected 1 item
 
 f.py <span class=" -Color -Color-Red">F</span>                                                                   <span class=" -Color -Color-Red">[100%]</span>
 
 =================================== FAILURES ===================================
-<span class=" -Color -Color-Bold -Color-Bold-Red">_____________________________________</span> <span class=" -Color -Color-Bold -Color-Bold-Red">test</span> <span class=" -Color -Color-Bold -Color-Bold-Red">_____________________________________</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">_____________________________</span> <span class=" -Color -Color-Bold -Color-Bold-Red">TestThing.test_fail</span> <span class=" -Color -Color-Bold -Color-Bold-Red">______________________________</span>
 
-    def test():
-    
-&gt;       assert False
-<span class=" -Color -Color-Bold -Color-Bold-Red">E</span>       <span class=" -Color -Color-Bold -Color-Bold-Red">assert</span> <span class=" -Color -Color-Bold -Color-Bold-Red">False</span>
+self = &lt;f.TestThing object at 0x7fe24421bbb0&gt;
 
-<span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:3: AssertionError
+&gt;   def test_fail(self): assert False
+<span class=" -Color -Color-Bold -Color-Bold-Red">E</span>   <span class=" -Color -Color-Bold -Color-Bold-Red">assert</span> <span class=" -Color -Color-Bold -Color-Bold-Red">False</span>
+
+<span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span>:2: AssertionError
 <span class=" -Color -Color-Bold -Color-Bold-Cyan">===========================</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">short</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">test</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">summary</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">info</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">============================</span>
-<span class=" -Color -Color-Red">FAILED</span> f.py::<span class=" -Color -Color-Bold">test</span> - assert False
+<span class=" -Color -Color-Red">FAILED</span> f.py::<span class=" -Color -Color-Bold">TestThing::test_fail</span> - assert False
 <span class=" -Color -Color-Red">==============================</span> <span class=" -Color -Color-Bold -Color-Bold-Red">1</span> <span class=" -Color -Color-Bold -Color-Bold-Red">failed</span> <span class=" -Color -Color-Red">in</span> <span class=" -Color -Color-Red">0.01s</span> <span class=" -Color -Color-Red">===============================</span></pre>
 </div>
 </body></html>
