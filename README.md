@@ -13,7 +13,9 @@ See [some demos](https://asottile.github.io/pygments-pytest)!  Or
 
 ## Installation
 
-`pip install pygments-pytest`
+```bash
+pip install pygments-pytest
+```
 
 ## Usage
 
