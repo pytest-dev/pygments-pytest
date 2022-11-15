@@ -11,32 +11,32 @@
 .-Color-Yellow{ color: #c4a000; }
 </style>
 </head><body><div class="highlight"><pre><span class=" -Color -Color-Bold">=============================</span> <span class=" -Color -Color-Bold">test</span> <span class=" -Color -Color-Bold">session</span> <span class=" -Color -Color-Bold">starts</span> <span class=" -Color -Color-Bold">==============================</span>
-platform linux -- Python 3.10.8, pytest-7.2.0, pluggy-1.0.0 -- /home/runner/work/pygments-pytest/pygments-pytest/.tox/push/bin/python
+platform linux -- Python 3.11.0, pytest-7.2.0, pluggy-1.0.0 -- /home/runner/work/pygments-pytest/pygments-pytest/.tox/push/bin/python
 cachedir: .pytest_cache
 rootdir: /tmp/pytest-of-runner/pytest-0/test_collection_failure_syntax_error1
 <span class=" -Color -Color-Bold">collecting</span> <span class=" -Color -Color-Bold">...</span> collected 0 items / 1 error
 
 ==================================== ERRORS ====================================
 <span class=" -Color -Color-Bold -Color-Bold-Red">____________________________</span> <span class=" -Color -Color-Bold -Color-Bold-Red">ERROR</span> <span class=" -Color -Color-Bold -Color-Bold-Red">collecting</span> <span class=" -Color -Color-Bold -Color-Bold-Red">f.py</span> <span class=" -Color -Color-Bold -Color-Bold-Red">_____________________________</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">/home/runner/work/pygments-pytest/pygments-pytest/.tox/push/lib/python3.10/site-packages/_pytest/python.py</span>:618: in _importtestmodule
+<span class=" -Color -Color-Bold -Color-Bold-Red">/home/runner/work/pygments-pytest/pygments-pytest/.tox/push/lib/python3.11/site-packages/_pytest/python.py</span>:618: in _importtestmodule
     mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
-<span class=" -Color -Color-Bold -Color-Bold-Red">/home/runner/work/pygments-pytest/pygments-pytest/.tox/push/lib/python3.10/site-packages/_pytest/pathlib.py</span>:533: in import_path
+<span class=" -Color -Color-Bold -Color-Bold-Red">/home/runner/work/pygments-pytest/pygments-pytest/.tox/push/lib/python3.11/site-packages/_pytest/pathlib.py</span>:533: in import_path
     importlib.import_module(module_name)
-<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.10.8/x64/lib/python3.10/importlib/__init__.py</span>:126: in import_module
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/importlib/__init__.py</span>:126: in import_module
     return _bootstrap._gcd_import(name[level:], package, level)
-<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;frozen</span> <span class=" -Color -Color-Bold -Color-Bold-Red">importlib._bootstrap&gt;</span>:1050: in _gcd_import
+<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;frozen</span> <span class=" -Color -Color-Bold -Color-Bold-Red">importlib._bootstrap&gt;</span>:1206: in _gcd_import
     ???
-<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;frozen</span> <span class=" -Color -Color-Bold -Color-Bold-Red">importlib._bootstrap&gt;</span>:1027: in _find_and_load
+<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;frozen</span> <span class=" -Color -Color-Bold -Color-Bold-Red">importlib._bootstrap&gt;</span>:1178: in _find_and_load
     ???
-<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;frozen</span> <span class=" -Color -Color-Bold -Color-Bold-Red">importlib._bootstrap&gt;</span>:1006: in _find_and_load_unlocked
+<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;frozen</span> <span class=" -Color -Color-Bold -Color-Bold-Red">importlib._bootstrap&gt;</span>:1149: in _find_and_load_unlocked
     ???
-<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;frozen</span> <span class=" -Color -Color-Bold -Color-Bold-Red">importlib._bootstrap&gt;</span>:688: in _load_unlocked
+<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;frozen</span> <span class=" -Color -Color-Bold -Color-Bold-Red">importlib._bootstrap&gt;</span>:690: in _load_unlocked
     ???
-<span class=" -Color -Color-Bold -Color-Bold-Red">/home/runner/work/pygments-pytest/pygments-pytest/.tox/push/lib/python3.10/site-packages/_pytest/assertion/rewrite.py</span>:159: in exec_module
+<span class=" -Color -Color-Bold -Color-Bold-Red">/home/runner/work/pygments-pytest/pygments-pytest/.tox/push/lib/python3.11/site-packages/_pytest/assertion/rewrite.py</span>:159: in exec_module
     source_stat, co = _rewrite_test(fn, self.config)
-<span class=" -Color -Color-Bold -Color-Bold-Red">/home/runner/work/pygments-pytest/pygments-pytest/.tox/push/lib/python3.10/site-packages/_pytest/assertion/rewrite.py</span>:337: in _rewrite_test
+<span class=" -Color -Color-Bold -Color-Bold-Red">/home/runner/work/pygments-pytest/pygments-pytest/.tox/push/lib/python3.11/site-packages/_pytest/assertion/rewrite.py</span>:337: in _rewrite_test
     tree = ast.parse(source, filename=strfn)
-<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.10.8/x64/lib/python3.10/ast.py</span>:50: in parse
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/ast.py</span>:50: in parse
     return compile(source, filename, mode, flags,
 <span class=" -Color -Color-Bold -Color-Bold-Red">E</span>     <span class=" -Color -Color-Bold -Color-Bold-Red">File</span> <span class=" -Color -Color-Bold -Color-Bold-Red">&quot;/tmp/pytest-of-runner/pytest-0/test_collection_failure_syntax_error1/f.py&quot;,</span> <span class=" -Color -Color-Bold -Color-Bold-Red">line</span> <span class=" -Color -Color-Bold -Color-Bold-Red">1</span>
 <span class=" -Color -Color-Bold -Color-Bold-Red">E</span>       <span class=" -Color -Color-Bold -Color-Bold-Red">(</span>
@@ -45,6 +45,6 @@ rootdir: /tmp/pytest-of-runner/pytest-0/test_collection_failure_syntax_error1
 <span class=" -Color -Color-Bold -Color-Bold-Cyan">===========================</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">short</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">test</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">summary</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">info</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">============================</span>
 <span class=" -Color -Color-Red">ERROR</span> f.py
 !!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
-<span class=" -Color -Color-Red">===============================</span> <span class=" -Color -Color-Bold -Color-Bold-Red">1</span> <span class=" -Color -Color-Bold -Color-Bold-Red">error</span> <span class=" -Color -Color-Red">in</span> <span class=" -Color -Color-Red">0.33s</span> <span class=" -Color -Color-Red">===============================</span></pre>
+<span class=" -Color -Color-Red">===============================</span> <span class=" -Color -Color-Bold -Color-Bold-Red">1</span> <span class=" -Color -Color-Bold -Color-Bold-Red">error</span> <span class=" -Color -Color-Red">in</span> <span class=" -Color -Color-Red">0.28s</span> <span class=" -Color -Color-Red">===============================</span></pre>
 </div>
 </body></html>
