@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-python@v1
-    - run: pip install tox
+    - run: pip install 'tox<4'
     - run: tox -e push
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
