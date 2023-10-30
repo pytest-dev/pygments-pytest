@@ -7,9 +7,11 @@ jobs:
   pr:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-python@v1
-    - run: pip install 'tox<4'
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: 3.x
+    - run: pip install tox
     - run: tox -e push
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
