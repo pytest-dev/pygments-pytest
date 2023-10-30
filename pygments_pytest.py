@@ -185,7 +185,7 @@ def stylesheet(colors: dict[str, str] | None = None) -> str:
     )
 
 
-def setup(app: Any) -> None:  # pragma: no cover (sphinx)
+def setup(app: Any) -> dict[str, object]:  # pragma: no cover (sphinx)
     def copy_stylesheet(app: Any, exception: Exception | None) -> None:
         if exception:
             return
@@ -199,3 +199,7 @@ def setup(app: Any) -> None:  # pragma: no cover (sphinx)
     app.add_config_value('pygments_pytest_ansi_colors', {}, 'html')
     app.add_css_file('pygments_pytest.css')
     app.connect('build-finished', copy_stylesheet)
+    return {
+        'parallel_read_safe': True,
+        'parallel_write_safe': True,
+    }
