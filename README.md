@@ -1,5 +1,5 @@
 [![build status](https://github.com/asottile/pygments-pytest/actions/workflows/main.yml/badge.svg)](https://github.com/asottile/pygments-pytest/actions/workflows/main.yml)
-[![Build Status](https://github.com/asottile/pygments-pytest/workflows/deploy/badge.svg)](https://github.com/asottile/pygments-pytest/actions)
+[![Build Status](https://github.com/asottile/pygments-pytest/actions/workflows/deploy.yml/badge.svg)](https://github.com/asottile/pygments-pytest/actions)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/asottile/pygments-pytest/main.svg)](https://results.pre-commit.ci/latest/github/asottile/pygments-pytest/main)
 
 pygments-pytest
