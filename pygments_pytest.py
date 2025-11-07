@@ -50,6 +50,7 @@ class PytestLexer(pygments.lexer.RegexLexer):
         for k, color in (
                 ('failed', Color.Red),
                 ('passed', Color.Green),
+                ('subpassed', Color.Green),
                 ('skipped', Color.Yellow),
                 ('deselected', Color.Yellow),
                 ('xfailed', Color.Yellow),
@@ -89,6 +90,7 @@ class PytestLexer(pygments.lexer.RegexLexer):
                 r'^(?P<before>=+ )?'
                 r'(?P<failed>\d+ failed)?(?P<failedcomma>, )?'
                 r'(?P<passed>\d+ passed)?(?P<passedcomma>, )?'
+                r'(?P<subpassed>\d+ subtests passed)?(?P<subpassedcomma>, )?'
                 r'(?P<skipped>\d+ skipped)?(?P<skippedcomma>, )?'
                 r'(?P<deselected>\d+ deselected)?(?P<deselectedcomma>, )?'
                 r'(?P<xfailed>\d+ xfailed)?(?P<xfailedcomma>, )?'
@@ -104,6 +106,7 @@ class PytestLexer(pygments.lexer.RegexLexer):
         ],
         'progress_line': [
             (r'^[^ ]+ (?=[^ \n]+(?: \(.+\))? +\[)', pygments.token.Text),
+            (r'SUBPASSED\([^)]+\)|u', Color.Green),
             (r'PASSED|\.', Color.Green),
             (r' +', pygments.token.Text),
             (r'\n', pygments.token.Text, '#pop'),

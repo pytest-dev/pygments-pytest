@@ -91,6 +91,16 @@ def test_warnings(compare):
     )
 
 
+@pytest.mark.xfail(reason='unreleased feature')
+def test_subtests(compare):
+    compare(
+        'def test(subtests):\n'
+        '    for i in range(5):\n'
+        '        with subtests.test():\n'
+        '            pass\n',
+    )
+
+
 DIFFERENT_TYPES_SRC = '''\
 import warnings
 import pytest
