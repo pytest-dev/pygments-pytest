@@ -1,0 +1,34 @@
+<!doctype html>
+<html><head>
+<style>body { background-color: #2d0922; color: #fff; } .-Color-Bold { font-weight: bold; }
+.-Color-Bold-Cyan{ color: #06989a; font-weight: bold; }
+.-Color-Cyan{ color: #06989a; }
+.-Color-Bold-Green{ color: #4e9a06; font-weight: bold; }
+.-Color-Green{ color: #4e9a06; }
+.-Color-Bold-Red{ color: #c00; font-weight: bold; }
+.-Color-Red{ color: #c00; }
+.-Color-Bold-Yellow{ color: #c4a000; font-weight: bold; }
+.-Color-Yellow{ color: #c4a000; }
+</style>
+</head><body><div class="highlight"><pre><span class=" -Color -Color-Bold">=============================</span> <span class=" -Color -Color-Bold">test</span> <span class=" -Color -Color-Bold">session</span> <span class=" -Color -Color-Bold">starts</span> <span class=" -Color -Color-Bold">==============================</span>
+platform linux -- Python 3.14.0, pytest-8.4.2, pluggy-1.6.0 -- /home/runner/work/pygments-pytest/pygments-pytest/.tox/push/bin/python
+cachedir: .pytest_cache
+rootdir: /tmp/pytest-of-runner/pytest-0/test_subtests1
+<span class=" -Color -Color-Bold">collecting</span> <span class=" -Color -Color-Bold">...</span> collected 1 item
+
+f.py::test <span class=" -Color -Color-Red">ERROR</span>                                                         <span class=" -Color -Color-Red">[100%]</span>
+
+==================================== ERRORS ====================================
+<span class=" -Color -Color-Bold -Color-Bold-Red">____________________________</span> <span class=" -Color -Color-Bold -Color-Bold-Red">ERROR</span> <span class=" -Color -Color-Bold -Color-Bold-Red">at</span> <span class=" -Color -Color-Bold -Color-Bold-Red">setup</span> <span class=" -Color -Color-Bold -Color-Bold-Red">of</span> <span class=" -Color -Color-Bold -Color-Bold-Red">test</span> <span class=" -Color -Color-Bold -Color-Bold-Red">____________________________</span>
+file /tmp/pytest-of-runner/pytest-0/test_subtests1/f.py, line 1
+  def test(subtests):
+<span class=" -Color -Color-Bold -Color-Bold-Red">E</span>       <span class=" -Color -Color-Bold -Color-Bold-Red">fixture</span> <span class=" -Color -Color-Bold -Color-Bold-Red">&#39;subtests&#39;</span> <span class=" -Color -Color-Bold -Color-Bold-Red">not</span> <span class=" -Color -Color-Bold -Color-Bold-Red">found</span>
+&gt;       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+&gt;       use &#39;pytest --fixtures [testpath]&#39; for help on them.
+
+/tmp/pytest-of-runner/pytest-0/test_subtests1/f.py:1
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">===========================</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">short</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">test</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">summary</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">info</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">============================</span>
+<span class=" -Color -Color-Red">ERROR</span> f.py::test
+<span class=" -Color -Color-Red">===============================</span> <span class=" -Color -Color-Bold -Color-Bold-Red">1</span> <span class=" -Color -Color-Bold -Color-Bold-Red">error</span> <span class=" -Color -Color-Red">in</span> <span class=" -Color -Color-Red">0.00s</span> <span class=" -Color -Color-Red">===============================</span></pre>
+</div>
+</body></html>
